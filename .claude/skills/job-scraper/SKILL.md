@@ -134,7 +134,7 @@ For each new job, do a rapid fit check (NOT the full evaluation from `04-job-eva
 - **Medium match**: Role is adjacent to your experience
 - **Low match**: Role requires significant skills you lack
 
-**Language override:** before assigning a match level, check the posting against `04-job-evaluation.md`'s Language Gate (a required language you haven't declared at all in your CLAUDE.md Languages table). A required language that's entirely undeclared overrides skill fit: mark it **Low** regardless of how well the skills align, and name it in the highlight bullets so it isn't buried under an otherwise-good-looking match. A **declared** language at a requirement that reads higher than your declared level is *not* an override — score fit normally, but add a red-flag bullet under that job's highlights (Step 5) quoting the posting's requirement next to your declared level, so the gap is visible without being auto-downgraded.
+**Language override:** before assigning a match level, check the posting against `04-job-evaluation.md`'s Language Gate. Under the **English-only rule**, a posting requiring **any non-English language as a job condition** overrides skill fit: mark it **Low** regardless of how well the skills align, and name the requirement in the highlight bullets so it isn't buried under an otherwise-good-looking match. Three things are *not* overrides — score fit normally: an English requirement at any level (English is declared Fluent); a non-English language listed only as a *nice-to-have* (add a one-line note); and a posting merely *written* in another language for a role that only needs English on the job. A posting requiring **Urdu** is flagged, not downgraded — it is a declared native language.
 
 ### Step 4: Deduplicate & Store
 
@@ -238,7 +238,7 @@ health: <portal-name> - broken (0 results for the SKILL.md test query and a broa
 |---|-----|-------|---------|----------|----------|-----|
 | 1 | High | ... | ... | ... | ... | [Link](...) |
 
-If Step 2.5 flagged a mass-posting pattern, note it in the Title cell (e.g. "Frontend Developer (posted in 6 cities)") rather than burying it. Do the same for a declared-language-insufficient-level flag from the Language Gate (e.g. "Backend Engineer ⚠ fluent English required") - both are signals the user should see at a glance, not just in the detail highlights below.
+If Step 2.5 flagged a mass-posting pattern, note it in the Title cell (e.g. "Frontend Developer (posted in 6 cities)") rather than burying it. Do the same for a Language Gate flag (e.g. "Backend Engineer ⚠ requires German") - both are signals the user should see at a glance, not just in the detail highlights below.
 
 ### High-Match Highlights
 For each high-match job, add 2-3 bullet points:
@@ -270,7 +270,7 @@ If the user decides to apply to any job, the tracker row is written by **job-app
 
 1. **Never fabricate job postings.** Only present jobs from actual CLI search/detail output or WebSearch/WebFetch results.
 2. **Respect deduplication.** Always check seen_jobs.json AND job_search_tracker.csv before presenting.
-3. **Focus on configured geographic area.** Skip jobs that require relocation or are clearly outside commute range.
+3. **Geography: worldwide except Pakistan.** Do **not** skip jobs that require relocation - relocation is a goal for this profile, and Abdul will self-fund it, so a role offering no relocation support is still a full match. Skip only roles based in Pakistan or Pakistan-remote, and roles whose ad **explicitly** requires existing work authorisation, local residence, citizenship, PR, or a clearance. A posting that is simply silent on visas or sponsorship is a **PASS** - do not flag it, do not verify it, just rank it. Region-locked remote roles that exclude him are flagged, not dropped. See `search-queries.md`'s Location Filter.
 4. **Only open positions.** Skip postings with expired deadlines or those marked as closed.
 5. **Be efficient with detail fetches.** Don't run `detail` or WebFetch on every search hit — pre-filter by title/snippet, then fetch only promising matches.
 6. **Parallel searches.** Run portal CLI searches in parallel; use WebSearch only for gaps the CLIs don't cover.

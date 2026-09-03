@@ -1,8 +1,7 @@
-%% Example CV - [YOUR_NAME]
+%% Example CV - Abdul Sattar
 %% Comprehensive overview of all competencies, experience, and achievements.
 %% Use as a master reference when tailoring role-specific CVs.
 %%
-%% SETUP: Run /setup to populate this with your actual information.
 %% Compile with: lualatex main_example.tex
 %% (pdflatex often fails on modern MiKTeX with fontawesome5 font-expansion errors.)
 
@@ -33,7 +32,7 @@
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
+    pdftitle={Abdul Sattar - CV},
     % Keep pdfpagemode=UseNone: this block runs after moderncv's own
     % \AtEndPreamble (moderncv.cls sets pdfpagemode there), so a FullScreen
     % value here would win and open every CV in fullscreen presentation mode.
@@ -43,13 +42,11 @@
 \usepackage{import}
 
 % personal data
-\name{[First]}{[Last]}
-% If you have no address to list, DELETE this whole line. \address{}{}{} fails
-% with "There's no line here to end" on every moderncv version.
-\address{[Your Address, City, Country]}{}{}
-\phone[mobile]{[+XX XXXXXXXXXX]}
-\email{[your.email@example.com]}
-\extrainfo{\href{[https://linkedin.com/in/your-profile]}{LinkedIn}, \href{[https://github.com/your-username]}{GitHub}}
+\name{Abdul}{Sattar}
+\address{Karachi, Pakistan}{}{}
+\phone[mobile]{+92 302 264 5125}
+\email{sattardariya@gmail.com}
+\extrainfo{\href{https://linkedin.com/in/sattardariya}{LinkedIn}}
 
 \begin{document}
 
@@ -60,7 +57,7 @@
 % ============================================================
 
 \vspace{6pt}
-\small{[Write a 3-5 line profile statement tailored to the role you're applying for. Focus on what makes you uniquely qualified. Example: "Data scientist with a PhD in [field] and X years of industry experience. Combines deep domain expertise in [domain] with strong applied machine learning and Python development skills. Experienced in developing end-to-end ML pipelines, from data ingestion to stakeholder-facing dashboards."]}
+\small{Senior Embedded DevOps Engineer with 8+ years building high-performance, secure systems across automotive, telecom, and global payment platforms. Deep expertise in Yocto BSP architecture, multi-layer BitBake design, and CI/CD pipeline optimisation for embedded Linux environments. Proven track record delivering build infrastructure for BMW infotainment systems, SWIFT payment platforms, and autonomous driving stacks. Experienced in leading cross-functional teams, driving Agile adoption, and collaborating with international remote teams across Europe, the Middle East, and Asia.}
 
 % ============================================================
 %     CORE COMPETENCIES
@@ -70,15 +67,17 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item \textbf{[Skill Category 1]}: [Specific skills, frameworks, tools. Be concrete.]
+\item \textbf{Embedded \& Build Systems}: Yocto Project, BitBake, Poky, OpenEmbedded, BSP layer design, cross-compilation, embedded Linux, ROS2, CMake, Colcon.
 
-\item \textbf{[Skill Category 2]}: [Specific skills, frameworks, tools.]
+\item \textbf{DevOps \& CI/CD}: GitLab CI/CD, Jenkins, Zuul CI, Docker, Git, Bitbucket, SonarQube, GTest, GMock, TDD/EDD, PlantUML, pipeline optimisation.
 
-\item \textbf{[Skill Category 3]}: [Specific skills, frameworks, tools.]
+\item \textbf{Programming \& Scripting}: C++ (STL, multithreading, modern idioms), C, Python, Bash.
 
-\item \textbf{[Skill Category 4]}: [Domain expertise, methods, approaches.]
+\item \textbf{Payment Systems}: ISO 8583, ISO 20022, EMV, PCI DSS, PA-DSS, mPOS, QR payments, VISA/MasterCard, SWIFT, NDC protocol.
 
-\item \textbf{[Skill Category 5]}: [Tools, platforms, software.]
+\item \textbf{Architectures \& Integration}: Microservices, design patterns, high-availability systems, SOAP, REST, SIP, RTP, ASAI, message queues, TCP/IP, IPC, SQL.
+
+\item \textbf{Cloud \& Process}: AWS, Agile, Scrum, Kanban, Jira, Confluence, remote teamwork.
 
 \end{itemize}
 
@@ -91,31 +90,50 @@
 \begin{itemize}
 
 % --- Most Recent Role ---
-\item{\cventry{[YYYY-Present]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\item{\cventry{2025-Present}{Embedded DevOps Engineer}{Covolv.ai}{Pakistan}{}{\vspace{1pt}
 \begin{itemize}
-    \item {[Achievement or responsibility 1 - be specific, use numbers where possible]}
-    \item {[Achievement or responsibility 2]}
-    \item {[Achievement or responsibility 3]}
-    \item {[Achievement or responsibility 4]}
+    \item {Architected a three-layer Yocto BSP stack from scratch as the sole embedded engineer, owning requirement gathering, system design, documentation, implementation, and maintenance.}
+    \item {Reduced CI build times by approximately 95\% by decomposing a 3-hour monolithic build into independently buildable units with clean dependency boundaries.}
+    \item {Built meta-debian, integrating cross-compiled Ubuntu/Debian native packages into Yocto by resolving RDEPENDS, DEPENDS, and native/target sysroot conflicts.}
+    \item {Developed meta-covolv and meta-autonomous, extending upstream Poky, OpenEmbedded, and meta-ros recipes via BBAPPEND without forking, and packaging the full autonomous driving codebase as a reproducible BitBake recipe.}
+    \item {Owned end-to-end hardware bring-up: building Yocto images, flashing target boards, and running integration tests on physical hardware.}
+    \item {Mentored one junior pipeline engineer and drove Scrum adoption plus JIRA workflow redesign as part of the XOPS process improvement team.}
 \end{itemize}}}
 
 \vspace{3pt}
 
 % --- Previous Role ---
-\item{\cventry{[YYYY-YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\item{\cventry{2024}{Principal Software Engineer -- C++ (Payments \& Transactions)}{Avanza Solutions}{Pakistan}{}{\vspace{1pt}
 \begin{itemize}
-    \item {[Achievement or responsibility 1]}
-    \item {[Achievement or responsibility 2]}
-    \item {[Achievement or responsibility 3]}
+    \item {Built microservices-based transaction flows for SWIFT P2P payments, enabling secure, low-latency cross-border processing at scale.}
+    \item {Developed high-availability gateway services to increase transactions per second for concurrent financial workloads.}
+    \item {Supported government monetary certification for payment compliance, coordinating with regulatory bodies.}
 \end{itemize}}}
 
 \vspace{3pt}
 
-% --- Earlier Role ---
-\item{\cventry{[YYYY-YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\item{\cventry{2023-2024}{Senior C++ Software Engineer -- BMW Infotainment}{Critical Techworks (BMW Group)}{Porto, Portugal}{}{\vspace{1pt}
 \begin{itemize}
-    \item {[Achievement or responsibility 1]}
-    \item {[Achievement or responsibility 2]}
+    \item {Improved BMW infotainment platform reliability by designing recovery features for unexpected shutdown scenarios, reducing unplanned downtime.}
+    \item {Integrated unit testing frameworks and automated build validation using Zuul CI, catching regressions earlier in the pipeline.}
+\end{itemize}}}
+
+\vspace{3pt}
+
+\item{\cventry{2020-2023}{Senior C++ Software Engineer -- Telecom Contact Centers}{Afiniti}{Pakistan}{}{\vspace{1pt}
+\begin{itemize}
+    \item {Delivered real-time telephony services over RTP and SIP for US carriers including AT\&T and Verizon, handling millions of concurrent call-routing decisions.}
+    \item {Led migration of monolithic telecom systems to a Docker-based microservices architecture, improving scalability and fault isolation.}
+    \item {Reduced SonarQube-reported defect density by refactoring legacy code with modern C++ idioms and adding comprehensive GTest/GMock suites.}
+\end{itemize}}}
+
+\vspace{3pt}
+
+\item{\cventry{2018-2020}{Software Engineer -- Digital Banking Platforms}{Avanza Solutions}{Pakistan}{}{\vspace{1pt}
+\begin{itemize}
+    \item {Built core digital banking services integrating ISO 8583 message processing with REST and SOAP APIs across banking channels, switch networks, and payment processors.}
+    \item {Enhanced ATM transaction solutions for Diebold, NCR, and Wincor hardware using NDC protocol, improving reliability and reducing terminal downtime.}
+    \item {Delivered EMV certification and national switch integration mandates for multiple banks.}
 \end{itemize}}}
 
 \end{itemize}
@@ -128,51 +146,62 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item{\cventry{[YYYY-YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-Thesis: ``[Thesis Title].'' [Brief description of research focus.]
+\item{\cventry{2013-2017}{BSc in Computer Science}{DHA Suffa University}{Karachi, Pakistan}{}{\vspace{1pt}
+Final Year Project: ``3D Handheld Scanner using Leap Motion.'' Built with C++, OpenCV, PCL, and CMake.
 }}
 
-\vspace{3pt}
+\end{itemize}
 
-\item{\cventry{[YYYY-YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-[Brief description or key topics.]
-}}
+% ============================================================
+%     CERTIFICATIONS IN PROGRESS
+% ============================================================
 
+\section{Certifications}
+\vspace{1pt}
+\begin{itemize}
+\item {Solid Principles for Software Design \& Architecture (2023); Test-Driven Development in C++; Advanced Design Patterns: Design Principles; MERN Essential Training.}
+\item {AWS Certified Solutions Architect -- Associate \emph{(in progress)}; NVIDIA AI Infrastructure \emph{(in progress)}.}
 \end{itemize}
 
 % ============================================================
 %     LANGUAGES
 % ============================================================
 
+% Keep in sync with the Languages table in
+% .claude/skills/job-application-assistant/01-candidate-profile.md.
 \section{Languages}
 \vspace{1pt}
 \begin{itemize}
-\item {[Language 1] (native), [Language 2] (fluent), [Language 3] (intermediate).}
+\item {English (fluent, primary working language), Urdu (native/bilingual).}
 \end{itemize}
 
 % ============================================================
-%     PUBLICATIONS (optional)
+%     PUBLICATIONS / HONORS AND AWARDS (optional)
 % ============================================================
-
-\section{Publications}
-\vspace{1pt}
-\begin{itemize}
-\item {[Author(s)] ([Year]). [Title]. [Journal/Conference]. \href{[DOI_URL]}{DOI link}}
-\end{itemize}
+%
+% Neither section appeared on the source CV. Uncomment and populate if applicable.
+%
+% \section{Publications}
+% \vspace{1pt}
+% \begin{itemize}
+% \item {Author(s) (Year). Title. Journal/Conference.}
+% \end{itemize}
+%
+% \section{Honors and Awards}
+% \vspace{1pt}
+% \begin{itemize}
+% \item{\textbf{Award Name} -- Event/Organization (Year).}
+% \end{itemize}
 
 % ============================================================
-%     HONORS AND AWARDS (optional)
+%     REFERENCES
 % ============================================================
 
 \section{Honors and Awards}
 \vspace{1pt}
 \begin{itemize}
-\item{\textbf{[Award Name]} -- [Event/Organization] ([Year]).}
+\item{\textbf{NGIRI funding for Final Year Project} -- National ICT R\&D Fund.}
 \end{itemize}
-
-% ============================================================
-%     REFERENCES
-% ============================================================
 
 \section{References}
 \vspace{1pt}
