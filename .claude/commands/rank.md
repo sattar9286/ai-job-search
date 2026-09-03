@@ -12,10 +12,13 @@ Follow these steps **in order**.
 
 `$ARGUMENTS` may contain:
 
-- Nothing → rank all jobs with status `new` in `job_scraper/seen_jobs.json`
+- Nothing → rank up to 10 jobs with status `new` in `job_scraper/seen_jobs.json`
 - A focus area (e.g. `/rank data science`) → rank only jobs whose title or stored fit-notes match the focus
 - `--all` → re-rank every job that has not been applied to, including previously ranked ones (useful after the profile changes)
+- `--limit <N>` → maximum number of jobs to score this run (default 10)
 - `--top <N>` → shortlist size (default 5)
+
+`--limit` bounds the expensive fetch-and-score work; `--top` only bounds how many scored jobs appear in the shortlist. They are independent: jobs beyond `--limit` are deferred, not silently discarded.
 
 ---
 
@@ -23,13 +26,14 @@ Follow these steps **in order**.
 
 1. Read `job_scraper/seen_jobs.json`. If the file is missing or has no entries, tell the user to run `/scrape` first and stop.
 2. Read `job_search_tracker.csv`. Build the exclusion set: any company+role already in the tracker is out of scope regardless of flags - it has been applied to or consciously tracked.
-3. Select candidates: entries with status `new` (or entries of any status with `--all`), minus the exclusion set, filtered by the focus area if one was given.
-4. If no candidates remain, say so ("Nothing new to rank - run /scrape to find fresh postings") and stop.
-5. Read the scoring framework and profile **once**:
+3. Select eligible candidates: entries with status `new` (or entries of any status with `--all`), minus the exclusion set, filtered by the focus area if one was given.
+4. Apply `--limit` after those filters. Keep at most N eligible candidates for this run and count every remaining eligible candidate as deferred. Deferred jobs keep their current status so a later `/rank` run continues the backlog.
+5. If no candidates remain, say so ("Nothing new to rank - run /scrape to find fresh postings") and stop.
+6. Read the scoring framework and profile **once**:
    - `.claude/skills/job-application-assistant/04-job-evaluation.md`
    - `.claude/skills/job-application-assistant/01-candidate-profile.md`
 
-State how many jobs will be ranked before proceeding.
+State how many jobs will be ranked and how many are deferred before proceeding.
 
 ---
 
@@ -77,6 +81,22 @@ Back in the main context, for each scored job:
 6. **Deadline urgency:** a deadline within 7 days gets a 🔥 marker and wins ties. A deadline that has already passed moves the job to `expired`. Take the deadline from the scoring agent's Step 2 JSON for a job scored in this run, and from the stored `deadline` in `seen_jobs.json` for one that already carries it - a stored value costs no fetch, so urgency is re-derived on every run without re-reading the posting. When both exist and disagree, the freshly scored value wins and replaces the stored one. A stored value that does not parse as `YYYY-MM-DD` is skipped for urgency as well - rule 7's defensive-parse rule applies wherever a stored deadline is compared.
 7. **Expiry sweep over already-ranked entries.** Before presenting, check the stored `deadline` of every `ranked` entry this run did not re-score. Any whose deadline has passed becomes `expired`; any within 7 days is listed under a short **Closing soon** heading in Step 5 with its 🔥 marker. This needs no fetch and no agent - it is a date comparison against values already on disk, and it is what finally enforces `/scrape`'s "only open positions" rule beyond the moment of fetching. **An entry with no stored `deadline` is left alone, never guessed at** - most entries predate the column, and inferring a deadline from `first_seen` would retire jobs on a date nobody set. **Parse stored deadlines defensively:** a stored value that is not a `YYYY-MM-DD` date is treated exactly like an absent one - left alone, never compared, never guessed at - and reported once in the Step 5 summary with its portal, so the bad value gets traced to its source instead of silently steering the sweep (portals have shipped `"ASAP"`, `DD.MM.YYYY`, and free-text deadline shapes into stored data). `--all` re-scores entries of any status including `expired`, so a job the sweep retired can still be revived by a later `--all` that re-fetches it and finds the posting live: the sweep is reversible, which is what makes an automated status change acceptable here at all.
 
+7. **Staleness flag:** a job whose stored `posted_date` is more than **30 days** old at
+   rank time stays in the ranking but carries a visible ⚠ marker with its age spelled out
+   alongside the score (e.g. "⚠ posted 2024-05-13, 27 months ago") - same treatment as a
+   location or language FLAG, for the user to judge. Age is a signal, never a veto: the
+   posting that motivated this rule was 27 months old *and still live*, so excluding on
+   age would wrongly bury real openings - and a stale posting with a future stored
+   `deadline` is still open by the stronger signal, so the flag notes the deadline too
+   rather than contradicting it. This costs no fetch: `posted_date` is already on disk
+   (written by `/scrape` Step 4), and age is re-derived on every run, never persisted.
+   **An entry with no `posted_date` (or `null`) gets no flag and no guess** - entries
+   predating the field simply lack the signal, and inferring age from `first_seen` would
+   flag jobs on a date nobody posted. Rule 6's defensive-parse rule applies wherever a
+   stored `posted_date` is compared: a value that does not parse as `YYYY-MM-DD` is
+   treated exactly like an absent one and reported once in the Step 5 summary with its
+   portal.
+
 Sort by overall score (descending), urgency as tiebreaker.
 
 ---
@@ -102,6 +122,7 @@ Do not modify `job_search_tracker.csv` - that file records applications, and `/r
 
 Ranked <N> new postings (<X> shortlisted, <Y> below threshold, <Z> expired/vetoed).
 Swept <S> previously ranked entries (<E> newly expired, <C> closing soon).
+<D> jobs deferred to the next run - re-run `/rank` to continue.
 
 ### Shortlist
 
