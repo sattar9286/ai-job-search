@@ -129,12 +129,33 @@ When the role sits outside your home domain, **lead with the domain-transfer arg
 
 **Create 2-3 profile statement templates for your main role types:**
 
-<!-- SETUP: These are populated based on your background -->
-**For [YOUR_PRIMARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_1]
+**For embedded / build-infrastructure roles** (Yocto BSP, CI/CD platform, embedded Linux):
+> Embedded DevOps engineer with 8+ years in C++ and embedded Linux, currently the sole embedded
+> engineer and Yocto BSP architect on an autonomous driving platform. Architected a three-layer
+> BitBake meta-layer stack from scratch, from requirement gathering and dependency inventory
+> through documentation, implementation and ongoing maintenance, and cut CI build times by ~95%
+> by decomposing a 3-hour monolithic build into independently buildable units. Owns the loop end
+> to end: build system design, GitLab CI pipeline architecture, cross-compilation, and hardware
+> bring-up on physical target boards. [ONE SENTENCE CONNECTING THIS TO THE POSTING'S SPECIFIC
+> PROBLEM - their silicon, their stack, their build pain.]
 
-**For [YOUR_SECONDARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_2]
+**For C++ systems roles in regulated / real-time domains** (payments, telecom, automotive):
+> Senior C++ engineer with 8+ years delivering production systems under external certification
+> and real-time constraints: SWIFT and EMV payment certification and ISO 8583 / ISO 20022 switch
+> integration in banking, RTP and SIP telephony for AT&T, Verizon and Converge One, and shutdown
+> recovery features for BMW infotainment at Critical Techworks. Works to a measured quality bar,
+> having reduced SonarQube defect density through modern C++ refactoring and comprehensive
+> GTest/GMock suites. [ONE SENTENCE ON WHY THIS DOMAIN AND THIS COMPANY.]
+
+**Both statements are starting points, not fill-in-the-blank text.** Rewrite the emphasis for the
+posting, keep the bracketed closing sentence genuinely specific, and re-check every claim against
+`01-candidate-profile.md` before it ships. Note in particular:
+- **"8+ years"** is the figure used on the master CV and LinkedIn. Recompute it if the posting
+  invites scrutiny; the continuous professional record starts Apr 2017.
+- **AWS and NVIDIA AI Infrastructure are in progress, not held.** Never let a profile statement
+  imply otherwise - see `01-candidate-profile.md` and the "In-progress qualifications" rule below.
+- **Nothing about pace, energy or structure preference belongs here.** `02-behavioral-profile.md`
+  has no usable finding in either direction on those.
 
 Statements labeled *[Used for: <company>_<role>]* were extracted from archived application drafts by `/setup` Path A. They are **phrasing references, never fact sources**: when drafting from one, every factual claim still comes from `01-candidate-profile.md` - a past tailored draft does not vouch for its own accuracy.
 

@@ -1,10 +1,7 @@
-# Job Application Assistant for [YOUR_NAME]
-
-<!-- SETUP: This file is populated by running /setup -->
-<!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
+# Job Application Assistant for Abdul Sattar
 
 ## Role
-This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
+This repo is a job application workspace. Claude acts as a career advisor and application assistant for Abdul Sattar, helping with:
 1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
 2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
 3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)
@@ -13,79 +10,122 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ## Candidate Profile
 
-<!-- This section is auto-populated by /setup. You can also fill it in manually. -->
-
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
+- **Name:** Abdul Sattar
+- **Location:** Karachi, Pakistan. **Targeting anywhere in the world except Pakistan** - remote or on-site are equally acceptable, and he will fund and arrange relocation himself if needed, so employer relocation support is a nice-to-have and never a requirement. Roles based in Pakistan or Pakistan-remote are filtered out. On work authorisation, the Eligibility Gate is set to **explicit exclusions only**: a posting is skipped only if it explicitly requires existing work rights, local residence, citizenship, PR, or a clearance. Silence on sponsorship is a PASS - score it, draft it, apply, and do not raise the visa question unprompted.
+- **Phone:** +92 302 264 5125
+- **Email:** sattardariya@gmail.com
+- **LinkedIn:** https://linkedin.com/in/sattardariya
+- **GitHub:** https://github.com/sattar9286
 - **Languages:**
   | Language | Level |
   |----------|-------|
-  | [LANGUAGE] | [LEVEL] |
-  <!-- Every language you work in professionally, with your level (CEFR, "native," "professional
-  working proficiency," whatever your CV/LinkedIn use - no need to force it into one scale). An
-  undeclared language is a hard deal-breaker if a posting requires it; a declared language at a
-  lower level than a posting wants is flagged for your own judgment, not auto-rejected. See
-  04-job-evaluation.md's Language Gate. -->
-- **CV language:** [YOUR_CV_LANGUAGE] <!-- English unless your market expects otherwise; /setup asks -->
+  | English | Fluent (primary working language) |
+  | Urdu | Native / Bilingual |
+- **CV language:** English
 
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Status:** Employed - Embedded DevOps Engineer at Covolv.ai (Jan 2025 - present), open to new opportunities
+- **LinkedIn headline:** "Embedded Linux / DevOps Engineer (Yocto, CI/CD, C++)"
 
 ### Education
-<!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
+- **BSc in Computer Science** (2013-2017) - DHA Suffa University, Karachi, Pakistan
+  - Final Year Project: "3D Handheld Scanner using Leap Motion"
+  - Topics: C++, OpenCV, PCL, CMake
 
 ### Professional Experience
-<!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
+- **Embedded DevOps Engineer** (Jan 2025 - Present) - **Covolv.ai** (Pakistan)
+  - Sole embedded engineer and Yocto BSP architect for an autonomous driving platform
+  - Architected a three-layer Yocto BSP stack from scratch (meta-debian, meta-covolv, meta-autonomous)
+  - Reduced CI build times by ~95% by decomposing a 3-hour monolithic build into independently buildable units
+  - Owned hardware bring-up and validation; mentored one junior pipeline engineer; drove Scrum adoption and JIRA workflow redesign for the XOPS team
+
+- **Principal Software Engineer - C++ (Payments & Transactions)** (May 2024 - Sept 2024) - **Avanza Solutions** (Pakistan)
+  - Built microservices-based transaction flows for SWIFT P2P payments
+  - Developed high-availability gateway services to increase transactions per second
+  - Supported government monetary certification for payment compliance
+
+- **Senior C++ Software Engineer - BMW Infotainment Systems** (Oct 2023 - Apr 2024) - **Critical Techworks (BMW Group)** (Porto, Portugal)
+  - Designed recovery features for unexpected shutdown scenarios, reducing unplanned downtime
+  - Integrated unit testing frameworks and automated build validation using Zuul CI
+
+- **Senior C++ Software Engineer - Telecom Contact Centers** (Nov 2020 - Sept 2023) - **Afiniti** (Pakistan)
+  - Delivered real-time telephony over RTP and SIP for AT&T, Verizon, and Converge One
+  - Led migration of monolithic telecom systems to Docker-based microservices
+  - Reduced SonarQube defect density via modern C++ refactoring and GTest/GMock suites
+
+- **Software Engineer - Digital Banking Platforms** (Jun 2018 - Nov 2020) - **Avanza Solutions** (Pakistan)
+  - Built core digital banking services integrating ISO 8583 with REST and SOAP APIs
+  - Enhanced ATM solutions for Diebold, NCR, and Wincor hardware using NDC protocol
+  - Delivered EMV certification and national switch integration mandates
 
 ### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
+- **Primary:** Yocto Project, BitBake, Poky, OpenEmbedded, BSP layer design, embedded Linux, C++ (STL, multithreading, modern idioms), CI/CD pipeline engineering (GitLab CI, Jenkins, Zuul), cross-compilation
+- **Secondary:** Python, Bash, C, Docker, ROS, Colcon, CMake, microservices, high-availability systems, SOAP/REST, AWS, SonarQube, GTest/GMock, Agile/Scrum, Jira, Confluence
+- **Domain:** Autonomous driving / automotive embedded platforms; telecom contact centres and real-time VoIP (SIP, RTP, ASAI); banking, payments and transaction switching (ISO 8583, ISO 20022, EMV, PCI DSS, SWIFT, NDC)
+- **Software:** GitLab, Jenkins, Docker, Git, Bitbucket, SonarQube, Jira, Confluence
 
 ### Certifications
-<!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
+- **Solid Principles for Software Design & Architecture** (2023) - completed
+- **Test-Driven Development in C++** - completed
+- **Advanced Design Patterns: Design Principles** - completed
+- **MERN Essential Training** - completed
+- **AWS Certified Solutions Architect - Associate** - in progress
+- **NVIDIA AI Infrastructure** - in progress
+
+<!-- Both are in the learning phase. Never present either as held in a CV or cover letter;
+"currently studying toward" is the honest framing. -->
 
 ### Publications
-<!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
+<!-- None recorded -->
 
 ### Awards
-<!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+- **NGIRI funding for Final Year Project** - National ICT R&D Fund
 
 ### Behavioral Profile
-<!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+<!-- Two IPIP-50 self-report administrations on 2026-08-29 disagree. Per Abdul's instruction,
+RUN 2 (the more recent answers) is the operative reading. See 02-behavioral-profile.md. -->
+
+| Domain | Run 1 | **Run 2 (operative)** | Reading |
+|--------|-------|-----------------------|---------|
+| Agreeableness | 41 | **44** | High - both runs agree |
+| Conscientiousness | 29 | **42** | High - industrious *and* orderly |
+| Openness / Intellect | 36 | **41** | Moderately high - both runs agree |
+| Extraversion | 24 | **35** | Balanced, slightly toward outgoing |
+| Emotional Stability | 23 | **30** | **No reading** - run 2 non-differentiated (all items answered 3) |
+
+**Reading:**
+- **Exacting and thorough** - prepared, detail-attentive, prompt, exacting scored 4-5 in both runs; corroborated by SonarQube defect reduction and formal architecture documentation
+- **Genuinely people-oriented** - high Agreeableness in both runs; supports mentoring, and carries a real risk of conceding positions and under-negotiating salary
+- **Reflective and idea-rich** - Openness convergent; strong at written architecture reasoning
+- **Comfortable with structure** - run 2 reads as orderly; process, planning and Agile ceremony are a fit, not a friction. Corroborated by the JIRA workflow redesign and Scrum adoption work.
+- **Balanced in group settings** - ambivert; collaborative and client-facing work is fine, neither draining nor energising
+
+**The one genuine unknown:** stress reactivity and pressure tolerance. Run 2's Emotional
+Stability items were all answered at the scale midpoint, so the newer answers give no reading
+here. Make no claim in either direction, and never down-score a posting for "fast-paced" or
+on-call language - ask Abdul about the specific role instead.
+
+- **Strengths:** end-to-end ownership, technical rigour, design documentation, mentoring, comfort with structured process
+- **Growth areas:** conflict avoidance and holding a position under pressure (supported by both runs)
+- **Never blocking:** behavioural fit is a soft signal. It never fails a job, never vetoes a
+  shortlist, and never stalls `/scrape` or `/rank`. Thin or missing behavioural evidence scores
+  neutral (70) and the run continues.
 
 ### What Excites You
-<!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+- Owning build infrastructure end to end, from BSP architecture through to hardware bring-up
+- Making other engineers faster - the ~95% CI build-time reduction is the work he is proudest of
+- Moving toward AI and GPU infrastructure at scale
 
 ### Target Sectors
-<!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- Embedded / automotive and autonomous driving: Covolv.ai, BMW Group, Bosch, Continental, ZF, Zoox, Wayve
+- AI and GPU infrastructure: NVIDIA (primary aspirational target), and comparable AI-infrastructure employers
+- Silicon and embedded toolchain vendors: Qualcomm, AMD, Arm, Intel, Wind River, Siemens
 
 ### Deal-breakers
-<!-- Hard constraints on job search. Language requirements are handled separately and
-automatically from your Languages table above - don't duplicate them here. -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+<!-- Not yet recorded - ask before relying on this section. -->
+- Roles whose ad **explicitly** requires existing work authorisation ("no visa sponsorship", "must have the right to work in X"), explicitly requires being local ("must be based in X", "local candidates only"), or requires citizenship, permanent residency, or a security clearance (fails the Eligibility Gate). Postings **silent** on sponsorship are not deal-breakers - apply to those.
+- **Roles requiring any language other than English as a job condition** (fails the Language Gate). A non-English language listed as a *nice-to-have* is not a requirement and does not fail. Urdu is the one exception - it is a declared native language, so flag rather than fail and let Abdul decide.
+- Roles based in Pakistan, or Pakistan-remote (fails the Location gate)
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)

@@ -1,84 +1,127 @@
 # Search Queries for Job Scraper
 
-<!-- SETUP: Customize these queries based on your skills, target roles, and location -->
-
 ## Installed portal CLIs (primary for `/scrape`)
 
 `/scrape` discovers every portal skill under `.agents/skills/*/SKILL.md` and runs its CLI first. Shipped country-agnostic CLIs include `linkedin-search` and `freehire-search`; Danish demos and any skill you add with `/add-portal` are included the same way. You do **not** need a matching `site:` line below for those CLIs to run.
 
+**Currently enabled:** `linkedin-search`, `freehire-search`.
+**Currently disabled:** the four Danish demo portals (`jobindex`, `jobbank`, `jobdanmark`, `jobnet`) — not relevant to this search.
+**Not yet installed:** StepStone and Indeed have no CLI skill. They are covered by the `site:` fallback queries below; scaffold real CLIs with `/add-portal` if the fallback proves too thin.
+
 The `site:` query templates in this file are the **WebSearch fallback** — for portals without a CLI, company career pages, or when a CLI fails.
 
-**Language scope:** write every query category in every language listed in your CLAUDE.md Languages table (typically 1-2, sometimes more). A posting requiring a language you have *not* declared, as a job condition, is excluded before scoring; a posting requiring a *higher level* than you declared in a language you *do* work in is flagged for your own judgment, not excluded — see `04-job-evaluation.md`'s Language Gate, the single source of truth for this rule. Translate each category's keywords rather than machine-translating word-for-word (e.g. "Frontend Developer" -> "Desarrollador Frontend", not a literal word-for-word translation) if you work in more than one language.
+**Language scope:** English only. All queries below are written in English, matching the single entry in CLAUDE.md's Languages table. A posting requiring a language not declared there, as a job condition, is excluded before scoring; a posting requiring a higher level than declared in a language that *is* listed is flagged for your own judgment, not excluded — see `04-job-evaluation.md`'s Language Gate, the single source of truth for this rule.
 
 ## Search Sites
 
-Primary (your market's job boards - scaffold one with `/add-portal`):
-- **[YOUR_JOB_BOARD]** - your market's largest general job board
-- **linkedin.com/jobs** - LinkedIn job listings (filter: [YOUR_COUNTRY] / [YOUR_CITY]); also covered by `linkedin-search` CLI
-- **[YOUR_INDUSTRY_JOB_BOARD]** - a niche/industry board for your field (optional)
-- **[YOUR_ADDITIONAL_JOB_BOARD]** - another major board for your market (optional)
+Primary:
+- **linkedin.com/jobs** — also covered by the `linkedin-search` CLI
+- **stepstone.com** / **stepstone.de** — strong for German, Dutch, and Belgian embedded roles, many of which sponsor relocation. Under the English-only rule, any posting requiring German (or Dutch, or French) **as a job condition** fails the Language Gate. Plenty of embedded roles in these markets are English-working — prefer queries that surface those rather than filtering after the fact.
+- **indeed.com** — broad international coverage
+- **freehire** — worldwide remote roles, covered by the `freehire-search` CLI
+
+Remote-worldwide boards (WebSearch fallback):
+- **weworkremotely.com**, **remoteok.com**, **remotive.com**, **wellfound.com**
 
 Secondary (company career pages via Google):
-- Direct Google searches with `site:` filters for known target companies
+- Direct `site:` searches for target companies — **NVIDIA** first, plus embedded/automotive and silicon vendors (Bosch, Continental, ZF, Qualcomm, AMD, Arm, Intel, Wind River, Siemens, Zoox, Wayve)
 
 ## Query Categories
 
-Queries are grouped by priority. Write **each category in every language from your Languages table** (see Language scope above). Combine each query with your location terms (e.g. your city, region, or metro area) where the site supports it.
+Queries are grouped by priority. Combine with the location terms in the Location Filter below where the site supports it.
 
-**Organize by function, not job title.** The same underlying work carries different titles across companies and markets (a "Data Scientist" role at one employer may be posted as "Insights Analyst" or "Data Consultant" at another). Name each priority category after the function it covers, and list several plausible job titles as query variants within that category rather than betting an entire priority tier on one exact title string.
+### Priority 1: Embedded DevOps & Yocto Build Systems
 
-### Priority 1: [YOUR_PRIMARY_ROLE_TYPE]
-
-These match your strongest and most desired career direction.
+The strongest and most desired direction — 8+ years of directly matching work.
 
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE_1]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE_2]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_KEY_SKILL]" [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE_1]" [YOUR_COUNTRY]
+site:linkedin.com/jobs "Embedded DevOps Engineer" remote OR relocation
+site:linkedin.com/jobs "Yocto" engineer remote
+site:linkedin.com/jobs "BSP Engineer" OR "Board Support Package" embedded
+site:stepstone.de "Embedded Linux Engineer" Yocto
+site:stepstone.com "Yocto" OR "BitBake" engineer
+site:indeed.com "Yocto Project" engineer visa sponsorship
+"Yocto" "BitBake" engineer remote worldwide
+"Embedded Linux" "CI/CD" engineer relocation sponsored
 ```
 
-### Priority 2: [YOUR_DOMAIN_EXPERTISE]
+### Priority 2: AI Infrastructure & Cloud Architecture
 
-These match your domain expertise.
-
-```
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] OR [YOUR_REGION]
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_2] [YOUR_COUNTRY]
-site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] [YOUR_COUNTRY]
-```
-
-### Priority 3: [YOUR_ADJACENT_ROLE_TYPE]
-
-Adjacent roles you could pivot into.
+The stated career direction (NVIDIA and comparable AI-infrastructure employers). Currently an aspirational tier — see the skills-in-progress note in `04-job-evaluation.md`; expect these to require the AWS SA-Associate and NVIDIA AI Infrastructure credentials to land.
 
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_CITY]
+site:nvidia.com/en-us/about-nvidia/careers "solutions architect" AI infrastructure
+site:linkedin.com/jobs "AI Infrastructure Engineer" remote
+site:linkedin.com/jobs "AI Solutions Architect" OR "Cloud Solutions Architect" GPU
+site:linkedin.com/jobs "GPU" infrastructure engineer remote
+site:indeed.com "AI infrastructure" architect remote
+"AI cloud architect" OR "GPU cluster" engineer remote worldwide
 ```
 
-### Priority 4: Broader Technical / Consulting
+### Priority 3: Platform, Build & Release, Developer Experience
 
-Wider net for general technical roles.
+Adjacent roles the build-system and CI/CD record pivots into cleanly — the ~95% build-time reduction is the headline evidence for all three.
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_KEY_SKILL] developer [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_KEY_SKILL] developer" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "technical consultant" [YOUR_DOMAIN] [YOUR_CITY]
+site:linkedin.com/jobs "Build and Release Engineer" C++ remote
+site:linkedin.com/jobs "Platform Engineer" embedded OR Linux remote
+site:linkedin.com/jobs "Developer Experience Engineer" OR "DevEx" build systems
+site:linkedin.com/jobs "Robotics Software Engineer" ROS C++ remote
+site:stepstone.com "Build Engineer" OR "Release Engineer" embedded
+"build systems" engineer "CI/CD" remote worldwide
+```
+
+### Priority 4: Broader C++ Systems Engineering
+
+Wider net, drawing on the payments, telecom, and automotive record.
+
+```
+site:linkedin.com/jobs "Senior C++ Engineer" remote worldwide
+site:linkedin.com/jobs "C++" engineer automotive relocation
+site:linkedin.com/jobs "C++" engineer payments OR "ISO 8583" OR SWIFT
+site:indeed.com "Senior C++ Developer" visa sponsorship
+site:stepstone.com "C++ Software Engineer" automotive
 ```
 
 ## Location Filter
 
-When evaluating results, verify the job location is within reasonable commute distance from your home. Define acceptable areas:
-- [YOUR_CITY] and surrounding areas
-- [ACCEPTABLE_AREA_1]
-- [ACCEPTABLE_AREA_2]
-- [BORDERLINE_AREA] (borderline - ~X min by transit)
-- [TOO_FAR_AREA] (too far)
+**Anywhere in the world except Pakistan** (rule set 2026-08-29). Remote and relocation are
+equally welcome, and Abdul will **fund and arrange relocation himself** if needed, so the absence
+of employer relocation support is not a downgrade.
+
+- **Ideal:** fully remote, hiring worldwide or in a region that includes his time zone
+- **Ideal:** on-site or hybrid outside Pakistan with visa sponsorship / relocation support stated
+- **Ideal:** on-site or hybrid outside Pakistan with **no** relocation support mentioned — rank
+  these level with the above, not below. Self-funded relocation is fine.
+- **Borderline:** remote roles region-locked in a way that excludes him ("remote — US only",
+  "remote — EU only") — flag rather than drop; some employers flex for contractors
+- **Exclude:** roles based in Pakistan, or Pakistan-remote. This is the one geography being
+  filtered out.
+- **Exclude:** roles whose ad **explicitly** requires existing work authorisation ("must have
+  the right to work in X", "no visa sponsorship"), explicitly requires being local ("must be
+  based in X", "local candidates only", "no relocation"), or requires citizenship, PR, or a
+  security clearance — these fail the Eligibility Gate in `04-job-evaluation.md` before scoring
+
+**Silence on sponsorship is a PASS, not a flag.** If a posting says nothing about visas,
+residency or work rights, keep it and rank it normally — do not mark it unverified and do not
+check the careers page first. Only an explicit exclusion drops a role. See the Eligibility Gate
+for the accepted trade-off behind this.
 
 ## Language Filter
 
-Your working languages and levels are in CLAUDE.md's Languages table. When filtering scraped results, apply `04-job-evaluation.md`'s Language Gate: a posting requiring a language you haven't declared at all is excluded; a posting requiring a higher level than you declared in a language you do work in is not excluded, flag it clearly instead (see `job-scraper/SKILL.md`'s Step 3 "Quick Fit Assessment" for how the flag surfaces in `/scrape` output). Postings simply *written* in a language you don't work in, that don't require it on the job, are fine.
+**English only** (rule set 2026-08-29). Apply `04-job-evaluation.md`'s Language Gate:
+
+- A posting requiring **any language other than English** as a job condition is **excluded**.
+- English requirements at any stated level **pass** — English is declared Fluent.
+- A non-English language listed as a *nice-to-have* is **not** a requirement: keep the posting
+  and note the preference.
+- Postings merely *written* in another language, for roles that only need English on the job,
+  are fine — do not exclude on the ad's language.
+- **Urdu is the one exception:** it is a declared native language, so flag rather than exclude
+  and let Abdul decide.
+
+When building queries for non-English markets, prefer terms that surface English-working roles
+(e.g. "English-speaking", "international team") rather than filtering after the fact.
 
 ## Date Filter
 
@@ -87,4 +130,5 @@ Only include jobs posted within the last 14 days, or with an application deadlin
 ## Adapting Queries
 
 If the user specifies a focus area, select queries from the matching category and also generate 2-3 custom queries for that focus. For example:
-- "/scrape [focus_area]" -> relevant category queries + custom focus-specific queries
+- "/scrape yocto" -> Priority 1 queries + custom Yocto-specific queries
+- "/scrape nvidia" -> Priority 2 queries + NVIDIA careers-page searches
