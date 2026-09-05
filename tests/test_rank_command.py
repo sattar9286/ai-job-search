@@ -419,5 +419,103 @@ class RankCommandSpec(unittest.TestCase):
         self.assertEqual(result.returncode, 0, f"lint_skills.py failed:\n{result.stdout}{result.stderr}")
 
 
+class PostedDateStalenessSpec(unittest.TestCase):
+    """Step 3 must consume the posted_date #391 persists.
+
+    The field exists because a 27-month-old posting ranked Strong Fit at
+    position 1 of 133 (#390): the scoring agent noticed the age and wrote it
+    into prose nothing reads. Persistence alone changes nothing - these pin
+    that /rank actually derives a signal from the stored date, and that the
+    signal keeps the schema's own boundary rules (flag never veto, no
+    inference for absent values, rule 6's defensive parse).
+    """
+
+    def setUp(self):
+        self.step3 = _sections(COMMAND.read_text(encoding="utf-8")).get(
+            "Step 3: Aggregate and Rank", ""
+        )
+        self.assertTrue(self.step3, "Step 3 section missing from rank.md")
+        # The spec hard-wraps its prose; assertions match against collapsed
+        # whitespace so a rewrap never fails a pin the text still honors.
+        self.flat = " ".join(self.step3.split())
+
+    def test_step3_consumes_posted_date(self):
+        self.assertIn(
+            "`posted_date`",
+            self.step3,
+            "Step 3 never reads the posted_date /scrape persists, so a posting's "
+            "age is stored but still invisible at rank time - the exact #390 gap",
+        )
+        self.assertIn(
+            "⚠",
+            self.step3.split("`posted_date`", 1)[1][:600],
+            "the staleness rule must surface age as a visible ⚠ marker, like the "
+            "location and language FLAG treatments",
+        )
+
+    def test_staleness_is_a_flag_never_a_veto(self):
+        self.assertRegex(
+            self.flat,
+            r"[Aa]ge is a signal, never a veto",
+            "staleness must keep FLAG semantics - the #390 posting was 27 months "
+            "old AND still live, so excluding on age would bury real openings",
+        )
+
+    def test_staleness_never_inferred_for_absent_values(self):
+        self.assertRegex(
+            self.flat,
+            r"no `posted_date`.*no flag and no guess",
+            "entries predating the field must get no staleness signal - inferring "
+            "age from first_seen would flag jobs on a date nobody posted",
+        )
+        self.assertIn(
+            "`first_seen`",
+            self.step3,
+            "the rule must name first_seen as the forbidden inference source",
+        )
+
+    def test_staleness_parses_posted_date_defensively(self):
+        self.assertRegex(
+            self.flat,
+            r"defensive-parse rule applies wherever a stored `posted_date` is compared",
+            "posted_date comparisons must carry rule 6's defensive-parse rule - the "
+            "contract test pins the field's presence, not its format, and portals "
+            "have shipped free-text shapes into stored date fields before",
+        )
+
+
+class RankBatchLimitSpec(unittest.TestCase):
+    """The expensive fetch-and-score batch is bounded independently of output."""
+
+    def setUp(self):
+        self.sections = _sections(COMMAND.read_text(encoding="utf-8"))
+
+    def test_step0_documents_default_limit_distinct_from_top(self):
+        step0 = self.sections.get("Step 0: Parse Input", "")
+        self.assertIn("`--limit <N>`", step0)
+        self.assertIn("default 10", step0)
+        self.assertIn("`--top <N>`", step0)
+        self.assertIn(
+            "They are independent",
+            step0,
+            "--limit must bound scoring without being confused with shortlist size",
+        )
+
+    def test_step1_applies_limit_after_eligibility_filters(self):
+        step1 = self.sections.get("Step 1: Load State", "")
+        self.assertIn("Apply `--limit` after those filters", step1)
+        self.assertIn("count every remaining eligible candidate as deferred", step1)
+        self.assertIn(
+            "keep their current status",
+            step1,
+            "deferred jobs must remain eligible for a later run",
+        )
+
+    def test_step5_reports_deferral_and_how_to_continue(self):
+        report = self.sections.get("Job Ranking - YYYY-MM-DD", "")
+        self.assertIn("jobs deferred", report)
+        self.assertIn("re-run `/rank` to continue", report)
+
+
 if __name__ == "__main__":
     unittest.main()
