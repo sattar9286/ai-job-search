@@ -1,10 +1,10 @@
-# Job Application Assistant for [YOUR_NAME]
+# Job Application Assistant for Abdul Sattar
 
 <!-- SETUP: This file is populated by running /setup -->
 <!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
 
 ## Role
-This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
+This repo is a job application workspace. Claude acts as a career advisor and application assistant for Abdul Sattar, helping with:
 1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
 2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
 3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)
@@ -16,76 +16,74 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 <!-- This section is auto-populated by /setup. You can also fill it in manually. -->
 
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
+- **Name:** Abdul Sattar
+- **Location:** Karachi, Pakistan (open to remote worldwide; open to relocation in Europe, Portugal, UAE)
 - **Languages:**
   | Language | Level |
   |----------|-------|
-  | [LANGUAGE] | [LEVEL] |
-  <!-- Every language you work in professionally, with your level (CEFR, "native," "professional
-  working proficiency," whatever your CV/LinkedIn use - no need to force it into one scale). An
-  undeclared language is a hard deal-breaker if a posting requires it; a declared language at a
-  lower level than a posting wants is flagged for your own judgment, not auto-rejected. See
-  04-job-evaluation.md's Language Gate. -->
-- **CV language:** [YOUR_CV_LANGUAGE] <!-- English unless your market expects otherwise; /setup asks -->
+  | English | Native |
+- **CV language:** English
 
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Status:** Employed as Embedded DevOps Engineer at Covolv.ai
+- **LinkedIn headline:** "Embedded Linux / DevOps Engineer (Yocto, CI/CD, C++)"
 
 ### Education
-<!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
+- **BSc in Computer Science** (2013-2017) - DHA Suffa University, Karachi, Pakistan
+  - Final Year Project: "3D Handheld Scanner using Leap Motion" - C++, OpenCV, PCL, CMake
+  - NGIRI-funded by National ICT R&D Fund
 
 ### Professional Experience
-<!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
+- **Embedded DevOps Engineer** (Jan 2025 - Present) - **Covolv.ai** (Pakistan)
+  - Sole embedded engineer and Yocto BSP architect for autonomous driving platform
+  - Architected three-layer Yocto stack (meta-debian, meta-covolv, meta-autonomous) from scratch
+  - Reduced CI build times by ~95% (3h to single-digit minutes)
+- **Principal Software Engineer - C++ (Payments & Transactions)** (May 2024 - Sept 2024) - **Avanza Solutions** (Pakistan)
+  - SWIFT P2P microservices payment flows; supported government monetary certification
+- **Senior C++ Software Engineer - BMW Infotainment Systems** (Oct 2023 - Apr 2024) - **Critical Techworks (BMW Group)** (Portugal)
+  - Recovery features for unexpected shutdown scenarios; Zuul CI integration
+- **Senior C++ Software Engineer - Telecom Contact Centers** (Nov 2020 - Sept 2023) - **Afiniti** (Pakistan)
+  - Real-time SIP/RTP telephony for AT&T, Verizon, Converge One; led monolith to microservices migration
+- **Software Engineer - Digital Banking Platforms** (Jun 2018 - Nov 2020) - **Avanza Solutions** (Pakistan)
+  - ISO 8583 middleware, ATM (Diebold/NCR/Wincor) NDC integration, EMV certification delivery
 
 ### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
+- **Primary:** C++ (expert), Embedded Linux, Yocto/BitBake, CI/CD (GitLab, Jenkins, Zuul), Docker, cross-compilation
+- **Secondary:** Python, Bash, ROS, CMake, Colcon, Microservices, AWS, TDD, GTest/GMock, SonarQube
+- **Domain:** Payment systems (ISO 8583, ISO 20022, EMV, PCI DSS, SWIFT, NDC), Telecom (SIP, RTP, VoIP, ASAI), Automotive infotainment, Autonomous driving build infrastructure
+- **Software:** Git, Bitbucket, Jira, Confluence, PlantUML
 
 ### Certifications
-<!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
+- **Solid Principles (2023) for Software Design & Architecture**
+- **Test-Driven Development in C++**
+- **Advanced Design Patterns: Design Principles**
+- **MERN Essential Training**
 
 ### Publications
-<!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
+- None
 
 ### Awards
-<!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+- NGIRI-funded Final Year Project by National ICT R&D Fund
 
 ### Behavioral Profile
-<!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+- **Systems owner / builder** - end-to-end responsibility, greenfield architecture, cross-cultural collaboration (US/EU/ME/Asia)
+- **Performance-first** - measures and reports concrete gains (95% CI reduction, TPS improvements, defect density reduction)
+- **Strengths:** Yocto BSP architecture, CI/CD optimization, C++ systems engineering, payment/telecom domain depth
+- **Growth areas:** Larger team leadership scale, ML/AI modeling breadth
+- **Thrives in:** Complex embedded/distributed problems with design surface, distributed teams, fast-paced delivery environments
 
 ### What Excites You
-<!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+- Greenfield architecture on production embedded Linux platforms
+- Build-system and CI/CD performance optimization at scale
+- Working with autonomous systems, robotics, and industrial embedded stacks
 
 ### Target Sectors
-<!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- Autonomous driving / robotics / automotive embedded
+- Payments / Fintech (SWIFT, ISO 20022, high-availability financial gateways)
+- Industrial IoT and embedded Linux platform companies
 
 ### Deal-breakers
-<!-- Hard constraints on job search. Language requirements are handled separately and
-automatically from your Languages table above - don't duplicate them here. -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+- Roles based in India (geographic exclusion)
+- Any role requiring a language other than English (English-only per Languages table above; Language Gate enforces automatically)
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)

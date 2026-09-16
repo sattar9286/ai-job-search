@@ -60,9 +60,8 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** [YOUR_PRIMARY_SKILLS]
-**Moderate match areas:** [YOUR_SECONDARY_SKILLS]
-**Weak match areas:** [SKILLS_YOU_LACK]
+**Strong match areas:** C++ (expert, 8+ years), Embedded Linux, Yocto/BitBake, CI/CD (GitLab, Jenkins, Zuul), Docker, cross-compilation, payment systems (ISO 8583, ISO 20022, EMV, SWIFT, PCI DSS), SIP/RTP telephony, GTest/GMock, SonarQube
+**Moderate match areas:** Python, Bash, ROS, microservices architecture, AWS, TDD/EDD, design patterns, PlantUML
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for? Match on the function and nature of the work performed, not the literal job title - a "Data Consultant" and a "Data Scientist" role can be functionally identical.
@@ -74,9 +73,9 @@ Does work history align with what they're looking for? Match on the function and
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** [YOUR_DIRECT_EXPERIENCE_DOMAINS]
-**Moderate:** [YOUR_ADJACENT_EXPERIENCE]
-**Entry-level:** [ROLES_WITH_LIMITED_EXPERIENCE]
+**Strong:** Embedded DevOps, Yocto BSP architecture, C++ systems engineering, payment/fintech backend, telecom (SIP/RTP) real-time services
+**Moderate:** Automotive infotainment (BMW), autonomous driving platform build infrastructure, ATM/POS integration
+**Entry-level:** People management beyond one direct report, ML/AI modeling, front-end/UI work
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -107,19 +106,19 @@ Does this role advance career goals and contain tasks that energize?
 | 0-39 | Dead end or backwards step |
 
 **Career goals:**
-- [YOUR_CAREER_GOAL_1]
-- [YOUR_CAREER_GOAL_2]
-- [YOUR_CAREER_GOAL_3]
+- Grow into senior/staff-level embedded systems or DevOps engineering roles at scale
+- Deepen ownership of production embedded Linux platforms (autonomous driving, robotics, industrial)
+- Build reputation in Yocto BSP architecture and CI/CD optimization
 
 **Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: [YOUR_ENERGIZING_TASKS]
-- Tasks that drain: [YOUR_DRAINING_TASKS]
+- Tasks that energize: greenfield architecture, performance/build-time optimization, cross-team enablement, complex embedded Linux problems, distributed system design
+- Tasks that drain: maintenance-only mandates with no design surface, heavy people-management overhead, disorganized process without ownership authority
 - Non-task factors: leadership style, department culture, company values, degree of autonomy
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: [YOUR_FINANCIAL_SITUATION_CONTEXT]
-- **Flexibility**: [YOUR_SCHEDULE_CONSTRAINTS]
-- **Professional development**: [YOUR_GROWTH_PRIORITIES]
+- **Security**: currently employed, evaluating strategic moves rather than urgent switches
+- **Flexibility**: based in Karachi; open to remote work with international teams (US/EU/ME time zones already worked)
+- **Professional development**: prioritize roles that expand systems ownership and technical depth
 
 ### 6. Salary Benchmark (Optional)
 

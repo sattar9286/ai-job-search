@@ -52,7 +52,7 @@ Expected output: `Output written on main_<company>_<role>.pdf (2 pages, ...)`. A
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
+    pdftitle={Abdul Sattar - CV},
     % Keep pdfpagemode=UseNone: this block runs after moderncv's own
     % \AtEndPreamble (moderncv.cls sets pdfpagemode there), so a FullScreen
     % value here would win and open every CV in fullscreen presentation mode.
@@ -62,13 +62,13 @@ Expected output: `Output written on main_<company>_<role>.pdf (2 pages, ...)`. A
 \usepackage{import}
 
 % Personal data
-\name{[FIRST_NAME]}{[LAST_NAME]}
+\name{Abdul}{Sattar}
 % If you have no address to list, DELETE this whole line. \address{}{}{} fails
 % with "There's no line here to end" on every moderncv version.
-\address{[YOUR_ADDRESS]}{}{}
-\phone[mobile]{[YOUR_PHONE]}
-\email{[YOUR_EMAIL]}
-\extrainfo{\href{[YOUR_LINKEDIN_URL]}{LinkedIn}, \href{[YOUR_GITHUB_URL]}{GitHub}}
+\address{Karachi, Pakistan}{}{}
+\phone[mobile]{+92 302 264 5125}
+\email{sattardariya@gmail.com}
+\extrainfo{\href{https://www.linkedin.com/in/sattardariya}{LinkedIn}}
 
 \begin{document}
 \makecvtitle
@@ -129,12 +129,14 @@ When the role sits outside your home domain, **lead with the domain-transfer arg
 
 **Create 2-3 profile statement templates for your main role types:**
 
-<!-- SETUP: These are populated based on your background -->
-**For [YOUR_PRIMARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_1]
+**For Embedded DevOps / Yocto BSP / Embedded Linux roles:**
+> Senior Embedded DevOps Engineer with 8+ years building high-performance, secure systems across automotive, telecom, and payment platforms. Deep expertise in Yocto BSP architecture, multi-layer BitBake design, and CI/CD pipeline optimization for embedded Linux. Owned a three-layer Yocto stack from scratch for an autonomous driving platform and cut CI build times by ~95%. Comfortable operating as the sole embedded engineer or as part of a distributed team across Europe, the Middle East, and Asia.
 
-**For [YOUR_SECONDARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_2]
+**For C++ Backend / Payments / Fintech roles:**
+> Senior C++ engineer with 8+ years across SWIFT payments, ISO 8583/20022 middleware, and high-availability financial gateway services. Delivered EMV certifications, national switch integrations, and low-latency cross-border payment flows for banks and payment processors. Comfortable moving from architecture through microservices delivery to production certification and go-live support.
+
+**For Telecom / Real-Time Systems roles:**
+> Senior C++ engineer with production experience delivering real-time SIP/RTP telephony services for major US carriers, routing millions of concurrent calls. Led the migration of monolithic telecom systems to a Docker-based microservices architecture and drove defect-density reduction through modern C++ refactoring and comprehensive GTest/GMock coverage.
 
 Statements labeled *[Used for: <company>_<role>]* were extracted from archived application drafts by `/setup` Path A. They are **phrasing references, never fact sources**: when drafting from one, every factual claim still comes from `01-candidate-profile.md` - a past tailored draft does not vouch for its own accuracy.
 

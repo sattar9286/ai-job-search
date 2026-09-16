@@ -1,3 +1,8 @@
+---
+model: haiku
+effort: low
+---
+
 # /reset - Reset Candidate Profile Data
 
 You are resetting parts of the job search framework back to a blank state so the user can start fresh with `/setup`.

@@ -1,21 +1,13 @@
-%% Example CV - [YOUR_NAME]
+%% Example CV - Abdul Sattar
 %% Comprehensive overview of all competencies, experience, and achievements.
 %% Use as a master reference when tailoring role-specific CVs.
 %%
-%% SETUP: Run /setup to populate this with your actual information.
 %% Compile with: lualatex main_example.tex
-%% (pdflatex often fails on modern MiKTeX with fontawesome5 font-expansion errors.)
 
 \documentclass[11pt,a4paper,sans]{moderncv}
 \moderncvstyle{banking}
 \moderncvcolor{blue}
 
-% Force the name and section headings to render in moderncv blue (color1).
-% Default banking leaves them black: moderncvstylebanking.sty's \colorlet
-% copies (not aliases) the pre-scheme accent colour, so the name colours are
-% frozen before \moderncvcolor runs. Re-let them after. \namefont is the hook
-% every name-style macro routes through, so this also works on moderncv 2.3.1
-% (Debian/Ubuntu apt), which has no \firstnamestyle/\lastnamestyle at all.
 \renewcommand*{\namefont}{\fontsize{34}{36}\bfseries\upshape}
 \colorlet{firstnamecolor}{color1}
 \colorlet{lastnamecolor}{color1}
@@ -23,33 +15,23 @@
 \renewcommand*{\sectionstyle}[1]{{\sectionfont\color{color1}#1}}
 
 \usepackage[utf8]{inputenc}
-% moderncv loads hyperref itself in an \AtEndPreamble hook, so \hypersetup
-% must go in an \AtEndPreamble of our own: on moderncv < 2.4 a top-level
-% \usepackage{hyperref} clashes with the class's own
-% \RequirePackage[unicode]{hyperref}. From 2.4.0 the class passes its options
-% through \PassOptionsToPackage instead, which is what removes that clash.
 \AtEndPreamble{\hypersetup{
     colorlinks=true,
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
-    % Keep pdfpagemode=UseNone: this block runs after moderncv's own
-    % \AtEndPreamble (moderncv.cls sets pdfpagemode there), so a FullScreen
-    % value here would win and open every CV in fullscreen presentation mode.
+    pdftitle={Abdul Sattar - CV},
     pdfpagemode=UseNone,
 }}
 \usepackage[scale=0.80]{geometry}
 \usepackage{import}
 
 % personal data
-\name{[First]}{[Last]}
-% If you have no address to list, DELETE this whole line. \address{}{}{} fails
-% with "There's no line here to end" on every moderncv version.
-\address{[Your Address, City, Country]}{}{}
-\phone[mobile]{[+XX XXXXXXXXXX]}
-\email{[your.email@example.com]}
-\extrainfo{\href{[https://linkedin.com/in/your-profile]}{LinkedIn}, \href{[https://github.com/your-username]}{GitHub}}
+\name{Abdul}{Sattar}
+\address{Karachi, Pakistan}{}{}
+\phone[mobile]{+92 302 264 5125}
+\email{sattardariya@gmail.com}
+\extrainfo{\href{https://www.linkedin.com/in/sattardariya}{LinkedIn}}
 
 \begin{document}
 
@@ -60,7 +42,7 @@
 % ============================================================
 
 \vspace{6pt}
-\small{[Write a 3-5 line profile statement tailored to the role you're applying for. Focus on what makes you uniquely qualified. Example: "Data scientist with a PhD in [field] and X years of industry experience. Combines deep domain expertise in [domain] with strong applied machine learning and Python development skills. Experienced in developing end-to-end ML pipelines, from data ingestion to stakeholder-facing dashboards."]}
+\small{Senior Embedded DevOps Engineer with 8+ years of experience building high-performance, secure systems across automotive, telecom, and global payment platforms. Deep expertise in Yocto BSP architecture, multi-layer BitBake design, and CI/CD pipeline optimization for embedded Linux environments. Proven track record delivering build infrastructure for BMW infotainment systems, SWIFT payment platforms, and autonomous driving stacks. Experienced in leading cross-functional teams, driving Agile adoption, and collaborating with international remote teams across Europe, the Middle East, and Asia.}
 
 % ============================================================
 %     CORE COMPETENCIES
@@ -70,15 +52,15 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item \textbf{[Skill Category 1]}: [Specific skills, frameworks, tools. Be concrete.]
+\item \textbf{Embedded \& Build Systems}: Yocto Project, BitBake, Poky, OpenEmbedded, BSP Layer Design, Cross-Compilation, Embedded Linux, ROS, CMake, Colcon.
 
-\item \textbf{[Skill Category 2]}: [Specific skills, frameworks, tools.]
+\item \textbf{DevOps \& CI/CD}: GitLab CI/CD, Jenkins, Zuul CI, Docker, Git, Bitbucket, SonarQube, GTest, GMock, Pipeline Optimization.
 
-\item \textbf{[Skill Category 3]}: [Specific skills, frameworks, tools.]
+\item \textbf{Programming \& Scripting}: C++ (expert, STL, multithreading, modern C++), C, Python, Bash.
 
-\item \textbf{[Skill Category 4]}: [Domain expertise, methods, approaches.]
+\item \textbf{Payment Systems}: ISO 8583, ISO 20022, EMV, PCI DSS, PADSS, mPOS, QR Payments, VISA/MasterCard, SWIFT, NDC Protocol.
 
-\item \textbf{[Skill Category 5]}: [Tools, platforms, software.]
+\item \textbf{Architectures \& Integration}: Microservices, Design Patterns, High Availability Systems, SOAP, REST, SIP, RTP, ASAI, TCP/IP.
 
 \end{itemize}
 
@@ -90,32 +72,44 @@
 \vspace{3pt}
 \begin{itemize}
 
-% --- Most Recent Role ---
-\item{\cventry{[YYYY-Present]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\item{\cventry{2025-Present}{Embedded DevOps Engineer}{Covolv.ai}{Pakistan}{}{\vspace{1pt}
 \begin{itemize}
-    \item {[Achievement or responsibility 1 - be specific, use numbers where possible]}
-    \item {[Achievement or responsibility 2]}
-    \item {[Achievement or responsibility 3]}
-    \item {[Achievement or responsibility 4]}
+    \item {Sole embedded engineer and Yocto BSP architect for an autonomous driving platform, owning the full lifecycle from requirement gathering through CI/CD and live hardware validation.}
+    \item {Architected a three-layer Yocto BSP stack (meta-debian, meta-covolv, meta-autonomous) entirely from scratch with no prior internal knowledge base.}
+    \item {Reduced CI build times by ~95\% (3h to single-digit minutes) by decomposing a monolithic build into independently buildable units with clean dependency boundaries.}
+    \item {Owned complete hardware bring-up loop: building Yocto images, flashing boards, running integration tests to verify boot and stack initialization on physical hardware.}
 \end{itemize}}}
 
 \vspace{3pt}
 
-% --- Previous Role ---
-\item{\cventry{[YYYY-YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\item{\cventry{2024-2024}{Principal Software Engineer - C++ (Payments \& Transactions)}{Avanza Solutions}{Pakistan}{}{\vspace{1pt}
 \begin{itemize}
-    \item {[Achievement or responsibility 1]}
-    \item {[Achievement or responsibility 2]}
-    \item {[Achievement or responsibility 3]}
+    \item {Built microservices-based transaction flows for SWIFT P2P payments, enabling secure, low-latency cross-border payment processing at scale.}
+    \item {Supported government monetary certification for payment compliance, coordinating with regulatory bodies.}
 \end{itemize}}}
 
 \vspace{3pt}
 
-% --- Earlier Role ---
-\item{\cventry{[YYYY-YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\item{\cventry{2023-2024}{Senior C++ Software Engineer - BMW Infotainment}{Critical Techworks (BMW Group)}{Portugal}{}{\vspace{1pt}
 \begin{itemize}
-    \item {[Achievement or responsibility 1]}
-    \item {[Achievement or responsibility 2]}
+    \item {Improved system reliability of BMW infotainment platform by designing recovery features for unexpected shutdown scenarios.}
+    \item {Integrated unit testing frameworks and automated build validation using Zuul CI, catching regressions earlier.}
+\end{itemize}}}
+
+\vspace{3pt}
+
+\item{\cventry{2020-2023}{Senior C++ Software Engineer - Telecom}{Afiniti}{Pakistan}{}{\vspace{1pt}
+\begin{itemize}
+    \item {Delivered real-time telephony services over RTP and SIP for AT\&T, Verizon, and Converge One, handling millions of concurrent call-routing decisions.}
+    \item {Led migration of monolithic telecom systems to Docker microservices, improving scalability and fault isolation.}
+\end{itemize}}}
+
+\vspace{3pt}
+
+\item{\cventry{2018-2020}{Software Engineer - Digital Banking}{Avanza Solutions}{Pakistan}{}{\vspace{1pt}
+\begin{itemize}
+    \item {Built ISO 8583 message-processing services with REST and SOAP APIs across banking channels and switch networks.}
+    \item {Delivered EMV certification and national switch integration mandates for multiple banks.}
 \end{itemize}}}
 
 \end{itemize}
@@ -128,14 +122,8 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item{\cventry{[YYYY-YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-Thesis: ``[Thesis Title].'' [Brief description of research focus.]
-}}
-
-\vspace{3pt}
-
-\item{\cventry{[YYYY-YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-[Brief description or key topics.]
+\item{\cventry{2013-2017}{BSc in Computer Science}{DHA Suffa University}{Karachi, Pakistan}{}{\vspace{1pt}
+Final Year Project: ``3D Handheld Scanner using Leap Motion.'' C++, OpenCV, PCL, CMake. NGIRI-funded by National ICT R\&D Fund.
 }}
 
 \end{itemize}
@@ -147,27 +135,30 @@ Thesis: ``[Thesis Title].'' [Brief description of research focus.]
 \section{Languages}
 \vspace{1pt}
 \begin{itemize}
-\item {[Language 1] (native), [Language 2] (fluent), [Language 3] (intermediate).}
+\item {English (native).}
 \end{itemize}
 
 % ============================================================
-%     PUBLICATIONS (optional)
+%     CERTIFICATIONS
 % ============================================================
 
-\section{Publications}
+\section{Certifications}
 \vspace{1pt}
 \begin{itemize}
-\item {[Author(s)] ([Year]). [Title]. [Journal/Conference]. \href{[DOI_URL]}{DOI link}}
+\item {Solid Principles (2023) for Software Design \& Architecture.}
+\item {Test-Driven Development in C++.}
+\item {Advanced Design Patterns: Design Principles.}
+\item {MERN Essential Training.}
 \end{itemize}
 
 % ============================================================
-%     HONORS AND AWARDS (optional)
+%     HONORS AND AWARDS
 % ============================================================
 
 \section{Honors and Awards}
 \vspace{1pt}
 \begin{itemize}
-\item{\textbf{[Award Name]} -- [Event/Organization] ([Year]).}
+\item{\textbf{NGIRI Grant} -- National ICT R\&D Fund (2017), for Final Year Project.}
 \end{itemize}
 
 % ============================================================
