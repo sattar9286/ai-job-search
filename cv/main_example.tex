@@ -2,7 +2,6 @@
 %% Comprehensive overview of all competencies, experience, and achievements.
 %% Use as a master reference when tailoring role-specific CVs.
 %%
-%% SETUP: Run /setup to populate this with your actual information.
 %% Compile with: lualatex main_example.tex
 %% (pdflatex often fails on modern MiKTeX with fontawesome5 font-expansion errors.)
 
@@ -54,7 +53,7 @@
 \address{Karachi, Pakistan}{}{}
 \phone[mobile]{+92 302 264 5125}
 \email{sattardariya@gmail.com}
-\extrainfo{\href{https://www.linkedin.com/in/sattardariya}{LinkedIn}}
+\extrainfo{\href{https://linkedin.com/in/sattardariya}{LinkedIn}}
 
 \begin{document}
 
@@ -65,7 +64,7 @@
 % ============================================================
 
 \vspace{6pt}
-\small{Senior Embedded DevOps Engineer with 8+ years of experience building high-performance, secure systems across automotive, telecom, and global payment platforms. Deep expertise in Yocto BSP architecture, multi-layer BitBake design, and CI/CD pipeline optimization for embedded Linux environments. Proven track record delivering build infrastructure for BMW infotainment systems, SWIFT payment platforms, and autonomous driving stacks. Experienced in leading cross-functional teams, driving Agile adoption, and collaborating with international remote teams across Europe, the Middle East, and Asia.}
+\small{Software Engineer with 8+ years building high-performance, secure systems across automotive, telecom, and global payment platforms. Deep expertise in Yocto BSP architecture, multi-layer BitBake design, and CI/CD pipeline optimisation for embedded Linux environments. Proven track record delivering build infrastructure for BMW infotainment systems, SWIFT payment platforms, and autonomous driving stacks. Experienced in leading cross-functional teams, driving Agile adoption, and collaborating with international remote teams across Europe, the Middle East, and Asia.}
 
 % ============================================================
 %     CORE COMPETENCIES
@@ -75,15 +74,17 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item \textbf{Embedded \& Build Systems}: Yocto Project, BitBake, Poky, OpenEmbedded, BSP Layer Design, Cross-Compilation, Embedded Linux, ROS, CMake, Colcon.
+\item \textbf{Embedded \& Build Systems}: Yocto Project, BitBake, Poky, OpenEmbedded, BSP layer design, cross-compilation, embedded Linux, ROS2, CMake, Colcon.
 
-\item \textbf{DevOps \& CI/CD}: GitLab CI/CD, Jenkins, Zuul CI, Docker, Git, Bitbucket, SonarQube, GTest, GMock, Pipeline Optimization.
+\item \textbf{DevOps \& CI/CD}: GitLab CI/CD, Jenkins, Zuul CI, Docker, Git, Bitbucket, SonarQube, GTest, GMock, TDD/EDD, PlantUML, pipeline optimisation.
 
-\item \textbf{Programming \& Scripting}: C++ (expert, STL, multithreading, modern C++), C, Python, Bash.
+\item \textbf{Programming \& Scripting}: C++ (STL, multithreading, modern idioms), C, Python, Bash.
 
-\item \textbf{Payment Systems}: ISO 8583, ISO 20022, EMV, PCI DSS, PADSS, mPOS, QR Payments, VISA/MasterCard, SWIFT, NDC Protocol.
+\item \textbf{Payment Systems}: ISO 8583, ISO 20022, EMV, PCI DSS, PA-DSS, mPOS, QR payments, VISA/MasterCard, SWIFT, NDC protocol.
 
-\item \textbf{Architectures \& Integration}: Microservices, Design Patterns, High Availability Systems, SOAP, REST, SIP, RTP, ASAI, TCP/IP.
+\item \textbf{Architectures \& Integration}: Microservices, design patterns, high-availability systems, SOAP, REST, SIP, RTP, ASAI, message queues, TCP/IP, IPC, SQL.
+
+\item \textbf{Cloud \& Process}: AWS, Agile, Scrum, Kanban, Jira, Confluence, remote teamwork.
 
 \end{itemize}
 
@@ -95,43 +96,50 @@
 \vspace{3pt}
 \begin{itemize}
 
+% --- Most Recent Role ---
 \item{\cventry{2025-Present}{Embedded DevOps Engineer}{Covolv.ai}{Pakistan}{}{\vspace{1pt}
 \begin{itemize}
-    \item {Sole embedded engineer and Yocto BSP architect for an autonomous driving platform, owning the full lifecycle from requirement gathering through CI/CD and live hardware validation.}
-    \item {Architected a three-layer Yocto BSP stack (meta-debian, meta-covolv, meta-autonomous) entirely from scratch with no prior internal knowledge base.}
-    \item {Reduced CI build times by ~95\% (3h to single-digit minutes) by decomposing a monolithic build into independently buildable units with clean dependency boundaries.}
-    \item {Owned complete hardware bring-up loop: building Yocto images, flashing boards, running integration tests to verify boot and stack initialization on physical hardware.}
+    \item {Architected a three-layer Yocto BSP stack from scratch as the sole embedded engineer, owning requirement gathering, system design, documentation, implementation, and maintenance.}
+    \item {Reduced CI build times by approximately 95\% by decomposing a 3-hour monolithic build into independently buildable units with clean dependency boundaries.}
+    \item {Built meta-debian, integrating cross-compiled Ubuntu/Debian native packages into Yocto by resolving RDEPENDS, DEPENDS, and native/target sysroot conflicts.}
+    \item {Developed meta-covolv and meta-autonomous, extending upstream Poky, OpenEmbedded, and meta-ros recipes via BBAPPEND without forking, and packaging the full autonomous driving codebase as a reproducible BitBake recipe.}
+    \item {Owned end-to-end hardware bring-up: building Yocto images, flashing target boards, and running integration tests on physical hardware.}
+    \item {Mentored one junior pipeline engineer and drove Scrum adoption plus JIRA workflow redesign as part of the XOPS process improvement team.}
 \end{itemize}}}
 
 \vspace{3pt}
 
-\item{\cventry{2024-2024}{Principal Software Engineer - C++ (Payments \& Transactions)}{Avanza Solutions}{Pakistan}{}{\vspace{1pt}
+% --- Previous Role ---
+\item{\cventry{2024}{Principal Software Engineer -- C++ (Payments \& Transactions)}{Avanza Solutions}{Pakistan}{}{\vspace{1pt}
 \begin{itemize}
-    \item {Built microservices-based transaction flows for SWIFT P2P payments, enabling secure, low-latency cross-border payment processing at scale.}
+    \item {Built microservices-based transaction flows for SWIFT P2P payments, enabling secure, low-latency cross-border processing at scale.}
+    \item {Developed high-availability gateway services to increase transactions per second for concurrent financial workloads.}
     \item {Supported government monetary certification for payment compliance, coordinating with regulatory bodies.}
 \end{itemize}}}
 
 \vspace{3pt}
 
-\item{\cventry{2023-2024}{Senior C++ Software Engineer - BMW Infotainment}{Critical Techworks (BMW Group)}{Portugal}{}{\vspace{1pt}
+\item{\cventry{2023-2024}{Senior C++ Software Engineer -- BMW Infotainment}{Critical Techworks (BMW Group)}{Porto, Portugal}{}{\vspace{1pt}
 \begin{itemize}
-    \item {Improved system reliability of BMW infotainment platform by designing recovery features for unexpected shutdown scenarios.}
-    \item {Integrated unit testing frameworks and automated build validation using Zuul CI, catching regressions earlier.}
+    \item {Improved BMW infotainment platform reliability by designing recovery features for unexpected shutdown scenarios, reducing unplanned downtime.}
+    \item {Integrated unit testing frameworks and automated build validation using Zuul CI, catching regressions earlier in the pipeline.}
 \end{itemize}}}
 
 \vspace{3pt}
 
-\item{\cventry{2020-2023}{Senior C++ Software Engineer - Telecom}{Afiniti}{Pakistan}{}{\vspace{1pt}
+\item{\cventry{2020-2023}{Senior C++ Software Engineer -- Telecom Contact Centers}{Afiniti}{Pakistan}{}{\vspace{1pt}
 \begin{itemize}
-    \item {Delivered real-time telephony services over RTP and SIP for AT\&T, Verizon, and Converge One, handling millions of concurrent call-routing decisions.}
-    \item {Led migration of monolithic telecom systems to Docker microservices, improving scalability and fault isolation.}
+    \item {Delivered real-time telephony services over RTP and SIP for US carriers including AT\&T and Verizon, handling millions of concurrent call-routing decisions.}
+    \item {Led migration of monolithic telecom systems to a Docker-based microservices architecture, improving scalability and fault isolation.}
+    \item {Reduced SonarQube-reported defect density by refactoring legacy code with modern C++ idioms and adding comprehensive GTest/GMock suites.}
 \end{itemize}}}
 
 \vspace{3pt}
 
-\item{\cventry{2018-2020}{Software Engineer - Digital Banking}{Avanza Solutions}{Pakistan}{}{\vspace{1pt}
+\item{\cventry{2018-2020}{Software Engineer -- Digital Banking Platforms}{Avanza Solutions}{Pakistan}{}{\vspace{1pt}
 \begin{itemize}
-    \item {Built ISO 8583 message-processing services with REST and SOAP APIs across banking channels and switch networks.}
+    \item {Built core digital banking services integrating ISO 8583 message processing with REST and SOAP APIs across banking channels, switch networks, and payment processors.}
+    \item {Enhanced ATM transaction solutions for Diebold, NCR, and Wincor hardware using NDC protocol, improving reliability and reducing terminal downtime.}
     \item {Delivered EMV certification and national switch integration mandates for multiple banks.}
 \end{itemize}}}
 
@@ -146,47 +154,61 @@
 \begin{itemize}
 
 \item{\cventry{2013-2017}{BSc in Computer Science}{DHA Suffa University}{Karachi, Pakistan}{}{\vspace{1pt}
-Final Year Project: ``3D Handheld Scanner using Leap Motion.'' C++, OpenCV, PCL, CMake. NGIRI-funded by National ICT R\&D Fund.
+Final Year Project: ``3D Handheld Scanner using Leap Motion.'' Built with C++, OpenCV, PCL, and CMake.
 }}
 
+\end{itemize}
+
+% ============================================================
+%     CERTIFICATIONS IN PROGRESS
+% ============================================================
+
+\section{Certifications}
+\vspace{1pt}
+\begin{itemize}
+\item {Solid Principles for Software Design \& Architecture (2023); Test-Driven Development in C++; Advanced Design Patterns: Design Principles; MERN Essential Training.}
+\item {AWS Certified Solutions Architect -- Associate \emph{(in progress)}; NVIDIA AI Infrastructure \emph{(in progress)}.}
 \end{itemize}
 
 % ============================================================
 %     LANGUAGES
 % ============================================================
 
+% Keep in sync with the Languages table in
+% .claude/skills/job-application-assistant/01-candidate-profile.md.
 \section{Languages}
 \vspace{1pt}
 \begin{itemize}
-\item {English (native).}
+\item {English (fluent, primary working language), Urdu (native/bilingual).}
 \end{itemize}
 
 % ============================================================
-%     CERTIFICATIONS
+%     PUBLICATIONS / HONORS AND AWARDS (optional)
 % ============================================================
-
-\section{Certifications}
-\vspace{1pt}
-\begin{itemize}
-\item {Solid Principles (2023) for Software Design \& Architecture.}
-\item {Test-Driven Development in C++.}
-\item {Advanced Design Patterns: Design Principles.}
-\item {MERN Essential Training.}
-\end{itemize}
+%
+% Neither section appeared on the source CV. Uncomment and populate if applicable.
+%
+% \section{Publications}
+% \vspace{1pt}
+% \begin{itemize}
+% \item {Author(s) (Year). Title. Journal/Conference.}
+% \end{itemize}
+%
+% \section{Honors and Awards}
+% \vspace{1pt}
+% \begin{itemize}
+% \item{\textbf{Award Name} -- Event/Organization (Year).}
+% \end{itemize}
 
 % ============================================================
-%     HONORS AND AWARDS
+%     REFERENCES
 % ============================================================
 
 \section{Honors and Awards}
 \vspace{1pt}
 \begin{itemize}
-\item{\textbf{NGIRI Grant} -- National ICT R\&D Fund (2017), for Final Year Project.}
+\item{\textbf{NGIRI funding for Final Year Project} -- National ICT R\&D Fund.}
 \end{itemize}
-
-% ============================================================
-%     REFERENCES
-% ============================================================
 
 \section{References}
 \vspace{1pt}

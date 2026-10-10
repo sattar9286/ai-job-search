@@ -66,6 +66,91 @@ Stubs generated from CV bullets. Flesh out Situation / Task / Action / Result de
 - Action:
 - Result:
 
+## STAR Candidates (Complete Manually)
+
+<!-- Extracted by /setup from the master CV. The achievements are real; the S/T/A/R detail
+is yours to fill in. Move each one up into "Ready-Made STAR Examples" once completed. -->
+
+### Three-layer Yocto BSP built from scratch as sole engineer
+**Source:** CV — Embedded DevOps Engineer, Covolv.ai
+**What happened:** Took full ownership of designing and building a three-layer Yocto BSP stack (meta-debian, meta-covolv, meta-autonomous) for an autonomous driving platform, with no prior internal knowledge base to build on.
+**Why it matters:** Ownership under ambiguity, greenfield architecture, working without a safety net, self-directed learning.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### ~95% CI build-time reduction
+**Source:** CV — Embedded DevOps Engineer, Covolv.ai
+**What happened:** Diagnosed a 3-hour full-build bottleneck caused by monolithic compilation, decomposed the project into independently buildable units with clean dependency boundaries, cutting per-module compile time to single-digit minutes.
+**Why it matters:** Quantified impact, systematic debugging, improving other people's productivity, "tell me about a time you improved a process".
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### meta-debian — making APT-world packages first-class BitBake citizens
+**Source:** CV — Embedded DevOps Engineer, Covolv.ai
+**What happened:** Built a custom Yocto meta-layer that sources, cross-compiles and integrates Ubuntu/Debian native packages into the Yocto build, resolving RDEPENDS/DEPENDS and native/target sysroot conflicts.
+**Why it matters:** Deep technical problem-solving, hardest-technical-problem questions, bridging incompatible systems.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Monolith to microservices migration at Afiniti
+**Source:** CV — Senior C++ Software Engineer, Afiniti
+**What happened:** Led migration of monolithic telecom systems to a Docker-based microservices architecture, improving scalability, deployment independence and fault isolation in production.
+**Why it matters:** Leading technical change, migration risk management, influencing a team, architecture decisions.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### BMW infotainment unexpected-shutdown recovery
+**Source:** CV — Senior C++ Software Engineer, Critical Techworks (BMW Group)
+**What happened:** Designed and implemented recovery features for unexpected shutdown scenarios on the BMW infotainment platform, reducing unplanned downtime.
+**Why it matters:** Reliability engineering, working to automotive standards, working in an international/remote team, edge-case thinking.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Passing SWIFT payment certification
+**Source:** LinkedIn — Principal Software Engineer, Avanza Solutions
+**What happened:** Integrated financial middleware with bank systems and took it through SWIFT payment certification successfully, alongside government monetary certification for payment compliance.
+**Why it matters:** Working to external standards, regulatory stakeholders, high-stakes delivery with a pass/fail gate, attention to detail.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Meezan Bank payment-switch migration to 1Link
+**Source:** LinkedIn — Software Engineer, Avanza Solutions
+**What happened:** Migrated an existing payment switch to the 1Link authentic switch for EFT and IBFT transactions at Meezan Bank.
+**Why it matters:** Migration risk on live financial infrastructure, client-facing delivery, working within a national payments ecosystem.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### XOPS process engineering — Scrum grooming and JIRA workflow redesign
+**Source:** CV — Embedded DevOps Engineer, Covolv.ai
+**What happened:** Groomed cross-functional teams on Scrum adoption and sprint ceremonies while redesigning and validating JIRA project workflows and issue validation rules, improving sprint visibility and reporting accuracy.
+**Why it matters:** Influence without authority, process improvement, stakeholder management, working outside the formal job description.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
 ## Common Tough Questions
 
 ### "Why did you leave [previous company]?"

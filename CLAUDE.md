@@ -13,77 +13,122 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ## Candidate Profile
 
-<!-- This section is auto-populated by /setup. You can also fill it in manually. -->
-
 ### Identity
 - **Name:** Abdul Sattar
-- **Location:** Karachi, Pakistan (open to remote worldwide; open to relocation in Europe, Portugal, UAE)
+- **Location:** Karachi, Pakistan. **Targeting anywhere in the world except Pakistan** - remote or on-site are equally acceptable, and he will fund and arrange relocation himself if needed, so employer relocation support is a nice-to-have and never a requirement. Roles based in Pakistan or Pakistan-remote are filtered out. On work authorisation, the Eligibility Gate is set to **explicit exclusions only**: a posting is skipped only if it explicitly requires existing work rights, local residence, citizenship, PR, or a clearance. Silence on sponsorship is a PASS - score it, draft it, apply, and do not raise the visa question unprompted.
+- **Phone:** +92 302 264 5125
+- **Email:** sattardariya@gmail.com
+- **LinkedIn:** https://linkedin.com/in/sattardariya
+- **GitHub:** https://github.com/sattar9286
 - **Languages:**
   | Language | Level |
   |----------|-------|
-  | English | Native |
+  | English | Fluent (primary working language) |
+  | Urdu | Native / Bilingual |
 - **CV language:** English
 
-- **Status:** Employed as Embedded DevOps Engineer at Covolv.ai
+- **Status:** Employed - Embedded DevOps Engineer at Covolv.ai (Jan 2025 - present), open to new opportunities
 - **LinkedIn headline:** "Embedded Linux / DevOps Engineer (Yocto, CI/CD, C++)"
 
 ### Education
 - **BSc in Computer Science** (2013-2017) - DHA Suffa University, Karachi, Pakistan
-  - Final Year Project: "3D Handheld Scanner using Leap Motion" - C++, OpenCV, PCL, CMake
-  - NGIRI-funded by National ICT R&D Fund
+  - Final Year Project: "3D Handheld Scanner using Leap Motion"
+  - Topics: C++, OpenCV, PCL, CMake
 
 ### Professional Experience
 - **Embedded DevOps Engineer** (Jan 2025 - Present) - **Covolv.ai** (Pakistan)
-  - Sole embedded engineer and Yocto BSP architect for autonomous driving platform
-  - Architected three-layer Yocto stack (meta-debian, meta-covolv, meta-autonomous) from scratch
-  - Reduced CI build times by ~95% (3h to single-digit minutes)
+  - Sole embedded engineer and Yocto BSP architect for an autonomous driving platform
+  - Architected a three-layer Yocto BSP stack from scratch (meta-debian, meta-covolv, meta-autonomous)
+  - Reduced CI build times by ~95% by decomposing a 3-hour monolithic build into independently buildable units
+  - Owned hardware bring-up and validation; mentored one junior pipeline engineer; drove Scrum adoption and JIRA workflow redesign for the XOPS team
+
 - **Principal Software Engineer - C++ (Payments & Transactions)** (May 2024 - Sept 2024) - **Avanza Solutions** (Pakistan)
-  - SWIFT P2P microservices payment flows; supported government monetary certification
-- **Senior C++ Software Engineer - BMW Infotainment Systems** (Oct 2023 - Apr 2024) - **Critical Techworks (BMW Group)** (Portugal)
-  - Recovery features for unexpected shutdown scenarios; Zuul CI integration
+  - Built microservices-based transaction flows for SWIFT P2P payments
+  - Developed high-availability gateway services to increase transactions per second
+  - Supported government monetary certification for payment compliance
+
+- **Senior C++ Software Engineer - BMW Infotainment Systems** (Oct 2023 - Apr 2024) - **Critical Techworks (BMW Group)** (Porto, Portugal)
+  - Designed recovery features for unexpected shutdown scenarios, reducing unplanned downtime
+  - Integrated unit testing frameworks and automated build validation using Zuul CI
+
 - **Senior C++ Software Engineer - Telecom Contact Centers** (Nov 2020 - Sept 2023) - **Afiniti** (Pakistan)
-  - Real-time SIP/RTP telephony for AT&T, Verizon, Converge One; led monolith to microservices migration
+  - Delivered real-time telephony over RTP and SIP for AT&T, Verizon, and Converge One
+  - Led migration of monolithic telecom systems to Docker-based microservices
+  - Reduced SonarQube defect density via modern C++ refactoring and GTest/GMock suites
+
 - **Software Engineer - Digital Banking Platforms** (Jun 2018 - Nov 2020) - **Avanza Solutions** (Pakistan)
-  - ISO 8583 middleware, ATM (Diebold/NCR/Wincor) NDC integration, EMV certification delivery
+  - Built core digital banking services integrating ISO 8583 with REST and SOAP APIs
+  - Enhanced ATM solutions for Diebold, NCR, and Wincor hardware using NDC protocol
+  - Delivered EMV certification and national switch integration mandates
 
 ### Technical Skills
-- **Primary:** C++ (expert), Embedded Linux, Yocto/BitBake, CI/CD (GitLab, Jenkins, Zuul), Docker, cross-compilation
-- **Secondary:** Python, Bash, ROS, CMake, Colcon, Microservices, AWS, TDD, GTest/GMock, SonarQube
-- **Domain:** Payment systems (ISO 8583, ISO 20022, EMV, PCI DSS, SWIFT, NDC), Telecom (SIP, RTP, VoIP, ASAI), Automotive infotainment, Autonomous driving build infrastructure
-- **Software:** Git, Bitbucket, Jira, Confluence, PlantUML
+- **Primary:** Yocto Project, BitBake, Poky, OpenEmbedded, BSP layer design, embedded Linux, C++ (STL, multithreading, modern idioms), CI/CD pipeline engineering (GitLab CI, Jenkins, Zuul), cross-compilation
+- **Secondary:** Python, Bash, C, Docker, ROS, Colcon, CMake, microservices, high-availability systems, SOAP/REST, AWS, SonarQube, GTest/GMock, Agile/Scrum, Jira, Confluence
+- **Domain:** Autonomous driving / automotive embedded platforms; telecom contact centres and real-time VoIP (SIP, RTP, ASAI); banking, payments and transaction switching (ISO 8583, ISO 20022, EMV, PCI DSS, SWIFT, NDC)
+- **Software:** GitLab, Jenkins, Docker, Git, Bitbucket, SonarQube, Jira, Confluence
 
 ### Certifications
-- **Solid Principles (2023) for Software Design & Architecture**
-- **Test-Driven Development in C++**
-- **Advanced Design Patterns: Design Principles**
-- **MERN Essential Training**
+- **Solid Principles for Software Design & Architecture** (2023) - completed
+- **Test-Driven Development in C++** - completed
+- **Advanced Design Patterns: Design Principles** - completed
+- **MERN Essential Training** - completed
+- **AWS Certified Solutions Architect - Associate** - in progress
+- **NVIDIA AI Infrastructure** - in progress
+
+<!-- Both are in the learning phase. Never present either as held in a CV or cover letter;
+"currently studying toward" is the honest framing. -->
 
 ### Publications
-- None
+<!-- None recorded -->
 
 ### Awards
-- NGIRI-funded Final Year Project by National ICT R&D Fund
+- **NGIRI funding for Final Year Project** - National ICT R&D Fund
 
 ### Behavioral Profile
-- **Systems owner / builder** - end-to-end responsibility, greenfield architecture, cross-cultural collaboration (US/EU/ME/Asia)
-- **Performance-first** - measures and reports concrete gains (95% CI reduction, TPS improvements, defect density reduction)
-- **Strengths:** Yocto BSP architecture, CI/CD optimization, C++ systems engineering, payment/telecom domain depth
-- **Growth areas:** Larger team leadership scale, ML/AI modeling breadth
-- **Thrives in:** Complex embedded/distributed problems with design surface, distributed teams, fast-paced delivery environments
+<!-- Two IPIP-50 self-report administrations on 2026-08-29 disagree. Per Abdul's instruction,
+RUN 2 (the more recent answers) is the operative reading. See 02-behavioral-profile.md. -->
+
+| Domain | Run 1 | **Run 2 (operative)** | Reading |
+|--------|-------|-----------------------|---------|
+| Agreeableness | 41 | **44** | High - both runs agree |
+| Conscientiousness | 29 | **42** | High - industrious *and* orderly |
+| Openness / Intellect | 36 | **41** | Moderately high - both runs agree |
+| Extraversion | 24 | **35** | Balanced, slightly toward outgoing |
+| Emotional Stability | 23 | **30** | **No reading** - run 2 non-differentiated (all items answered 3) |
+
+**Reading:**
+- **Exacting and thorough** - prepared, detail-attentive, prompt, exacting scored 4-5 in both runs; corroborated by SonarQube defect reduction and formal architecture documentation
+- **Genuinely people-oriented** - high Agreeableness in both runs; supports mentoring, and carries a real risk of conceding positions and under-negotiating salary
+- **Reflective and idea-rich** - Openness convergent; strong at written architecture reasoning
+- **Comfortable with structure** - run 2 reads as orderly; process, planning and Agile ceremony are a fit, not a friction. Corroborated by the JIRA workflow redesign and Scrum adoption work.
+- **Balanced in group settings** - ambivert; collaborative and client-facing work is fine, neither draining nor energising
+
+**The one genuine unknown:** stress reactivity and pressure tolerance. Run 2's Emotional
+Stability items were all answered at the scale midpoint, so the newer answers give no reading
+here. Make no claim in either direction, and never down-score a posting for "fast-paced" or
+on-call language - ask Abdul about the specific role instead.
+
+- **Strengths:** end-to-end ownership, technical rigour, design documentation, mentoring, comfort with structured process
+- **Growth areas:** conflict avoidance and holding a position under pressure (supported by both runs)
+- **Never blocking:** behavioural fit is a soft signal. It never fails a job, never vetoes a
+  shortlist, and never stalls `/scrape` or `/rank`. Thin or missing behavioural evidence scores
+  neutral (70) and the run continues.
 
 ### What Excites You
-- Greenfield architecture on production embedded Linux platforms
-- Build-system and CI/CD performance optimization at scale
-- Working with autonomous systems, robotics, and industrial embedded stacks
+- Owning build infrastructure end to end, from BSP architecture through to hardware bring-up
+- Making other engineers faster - the ~95% CI build-time reduction is the work he is proudest of
+- Moving toward AI and GPU infrastructure at scale
 
 ### Target Sectors
-- Autonomous driving / robotics / automotive embedded
-- Payments / Fintech (SWIFT, ISO 20022, high-availability financial gateways)
-- Industrial IoT and embedded Linux platform companies
+- Embedded / automotive and autonomous driving: Covolv.ai, BMW Group, Bosch, Continental, ZF, Zoox, Wayve
+- AI and GPU infrastructure: NVIDIA (primary aspirational target), and comparable AI-infrastructure employers
+- Silicon and embedded toolchain vendors: Qualcomm, AMD, Arm, Intel, Wind River, Siemens
 
 ### Deal-breakers
-- Roles based in India (geographic exclusion)
-- Any role requiring a language other than English (English-only per Languages table above; Language Gate enforces automatically)
+<!-- Not yet recorded - ask before relying on this section. -->
+- Roles whose ad **explicitly** requires existing work authorisation ("no visa sponsorship", "must have the right to work in X"), explicitly requires being local ("must be based in X", "local candidates only"), or requires citizenship, permanent residency, or a security clearance (fails the Eligibility Gate). Postings **silent** on sponsorship are not deal-breakers - apply to those.
+- **Roles requiring any language other than English as a job condition** (fails the Language Gate). A non-English language listed as a *nice-to-have* is not a requirement and does not fail. Urdu is the one exception - it is a declared native language, so flag rather than fail and let Abdul decide.
+- Roles based in Pakistan, or Pakistan-remote (fails the Location gate)
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)

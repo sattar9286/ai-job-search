@@ -8,43 +8,65 @@ framework_version: 1.2.6
 
 ## Eligibility Gate — run before scoring
 
-If the candidate is not a citizen or permanent resident of the country they are applying in, run this first. It is a hard filter, not a scoring dimension, and it is separate from work-permit *timing*: timing asks "can they work the required hours yet?", eligibility asks "are they permitted to hold this job at all?". A candidate can pass timing and still be categorically excluded.
+**Abdul's rule (set 2026-08-29): explicit exclusions only.** This gate fails a posting **only
+when the ad itself explicitly says the candidate must already be in the country or already
+authorised to work there.** Everything else passes. He would rather see a role and negotiate
+than have it filtered out on a guess about visas — his words: *"maybe I can break a deal."*
 
 Read the posting's eligibility / work rights / "who can apply" section **verbatim** and classify:
 
 | Posting wording | Verdict |
 |-----------------|---------|
-| Names a **citizenship or permanent-residency requirement** ("must be a citizen of X", "permanent resident", "PR required", "full working rights" where the employer means citizen/PR) | **FAIL — hard stop.** Do not score, do not draft. Quote the exact wording back to the user. |
-| Requires a **security clearance** at any level | **FAIL** in most countries, since clearance is normally gated on citizenship. Verify the specific scheme rather than assuming. |
-| **Explicitly names** the candidate's permit class, or says "international applicants welcome", "visa holders considered", "we sponsor" | **PASS** — verified acceptance. Worth noting as a positive in the application. |
-| **Silent** on citizenship or residency | **PROCEED, but mark unverified.** Check the employer's own careers or international-applicant page before drafting. |
+| **Explicitly requires existing work authorisation** — "must be authorised to work in X without sponsorship", "we do not sponsor visas", "no visa sponsorship available", "must have the right to work in X" | **FAIL — skip.** Quote the exact wording back to the user. |
+| **Explicitly requires being located there** — "must be based in X", "must already reside in X", "local candidates only", "no relocation" | **FAIL — skip.** Quote the exact wording. |
+| Names a **citizenship or permanent-residency requirement** ("must be a citizen of X", "PR required") | **FAIL — skip.** Quote the exact wording. |
+| Requires a **security clearance** at any level | **FAIL — skip.** Clearance is normally gated on citizenship. |
+| **Explicitly welcoming** — names his permit situation, or says "international applicants welcome", "visa holders considered", "we sponsor", "relocation supported" | **PASS.** Worth naming as a positive in the application. |
+| **Silent** on citizenship, residency, sponsorship or location | **PASS. Score it, draft it, apply.** Do not mark it unverified, do not block drafting on a careers-page check, and do not raise the visa question unprompted. |
 
-**Two rules that are easy to get wrong:**
+**What changed and why it matters.** The framework's stock rule is "silence is not permission" —
+check the employer's own careers page before drafting. That rule is **deliberately switched off
+for this profile.** Abdul has decided the cost of a rejection late in the process is worth
+paying for the chance to negotiate, and that pre-filtering silent postings loses too many real
+opportunities. The honest trade-off, stated once here so nobody has to rediscover it: **some
+silent postings will turn out not to sponsor, and that will surface after he has invested effort
+in an application.** That is the accepted cost of this rule, not an oversight.
 
-1. **Silence is not permission.** Large graduate programs frequently gate eligibility on their own website rather than in the job ad. Highest-risk categories: professional-services firms, government and defence, banking, telecommunications, and anything touching critical infrastructure.
-2. **A company-wide "we accept international applicants" statement is not role-level permission.** The common pattern is a general welcome followed by a *named list* of the specific programs or service lines it covers. Confirm the **specific posting or stream** appears on that list before drafting.
+Two things this rule does **not** change:
 
-**Report an eligibility failure to the user with the quoted source** rather than silently dropping the role. They may know something about their own status that the profile does not record.
+1. **An explicit exclusion is still a hard stop.** "No visa sponsorship" means no, and applying
+   anyway wastes his time rather than opening a negotiation.
+2. **Never assert he is authorised when he isn't.** Passing a silent posting means applying
+   without raising the question — it does not mean writing "I am authorised to work in X" into a
+   CV or cover letter. If an application form asks directly, answer it truthfully.
 
-If the candidate's permit also constrains *hours* or *start date* (a student visa with a term-time cap, a permit that begins on graduation), record that as a second gate under this section during `/setup`, with the specific dates. Do not merge it with the eligibility question above — they fail for different reasons and need different answers.
+**Report an eligibility failure with the quoted source** rather than silently dropping the role.
+He may know something about a specific country or employer that the profile does not record.
 
-A role that fails this gate is not scored and not drafted. Everything below applies only to roles that pass it.
+A role that fails this gate is not scored and not drafted. Everything below applies only to roles
+that pass it.
 
 ## Language Gate — run before scoring
 
 This gate checks a posting's language requirements against what the candidate actually speaks. It is not one of the five Scoring Dimensions below - it runs before them, structured the same way as the Eligibility Gate above: read the posting, classify against profile data, and treat a hard mismatch as FAIL before scoring. Its verdict is tracked downstream: `/rank` records the result as `language_gate` (PASS/FAIL/FLAG) with a supporting `language_note`, persists both into `seen_jobs.json`, and treats a FAIL as a shortlist veto; `/scrape` surfaces the flag in its results table and carries a language-override rule for postings whose ad language differs from the role's working language. `/apply`'s language detection (Step 1, which extracts a posting's required language generically) feeds this same check.
 
-Read the posting's language requirements as stated for **the role itself** — not the language the ad happens to be written in. A posting written in a language you don't work in, for a role that only needs languages you do work in on the job, passes fine; only an explicit job-condition requirement ("fluent X required," "must communicate with the Y team in Z") triggers this check. For each language the posting requires as a job condition, compare it against your Languages table in CLAUDE.md / `01-candidate-profile.md`:
+Read the posting's language requirements as stated for **the role itself** — not the language the ad happens to be written in. A posting written in a language you don't work in, for a role that only needs English on the job, passes fine; only an explicit job-condition requirement ("fluent X required," "must communicate with the Y team in Z") triggers this check.
 
-| Posting requirement vs. your Languages table | Verdict |
+**Abdul's rule (set 2026-08-29): English-only.** If a posting requires **any language other than English** as a job condition, it is a **FAIL** — do not score, do not draft. This is deliberately stricter than the framework default: it is a decision about which jobs are worth the effort, not a claim about what he can learn.
+
+| Posting requirement | Verdict |
 |---|---|
-| Requires a language **not on your table at all** (e.g. "fluent Polish required," "must communicate with the Warsaw team in Russian," and you list no Polish/Russian row) | **FAIL — hard stop.** Do not score, do not draft. Quote the exact requirement line. |
-| Requires a language you **do** list, but the posting's stated bar (as written — "fluent," "native," "C1+," "business-level") reads as plausibly **higher** than your declared level | **FLAG, then proceed.** Not a fail. Score and draft normally, but surface the gap explicitly in your report to the user (quote both the posting's requirement and your declared level) so they can judge it themselves — bars like "fluent" vary a lot by company and geography, and a recruiter may be flexible. Never silently drop the posting and never silently treat it as a clean pass. |
-| Requires a language you list, at or below your declared level (or the posting doesn't specify a level at all — just names the language) | **PASS.** No note needed. |
+| Requires **any non-English language** as a job condition ("fluent German required," "must support the Warsaw team in Polish," "C1 French") | **FAIL — hard stop.** Quote the exact requirement line back to the user. |
+| Requires English at any stated level ("fluent," "business-level," "C1," "native," or unspecified) | **PASS.** English is declared **Fluent** and is the primary working language, corroborated by the Critical Techworks (Porto) engagement and the AT&T / Verizon / Converge One work. No note needed. |
+| Names a non-English language as a **nice-to-have, plus, or advantage** — not a condition | **PASS**, with a one-line note that the preference exists. A preference is not a requirement. |
+| Silent on language | **PASS.** |
 
-Judge the level comparison the same way you judge everything else in this framework: read both sides as written and reason about it, don't force either into a rigid scale — CEFR letters, LinkedIn-style buckets ("professional working proficiency"), and plain-English words ("conversational," "fluent," "native") all appear in the wild and don't map onto each other precisely. When genuinely unsure whether a stated bar exceeds the candidate's level, prefer FLAG over a silent PASS — the human is meant to be the tiebreaker, not the gate.
+**Two edge cases:**
 
-**Worked example:** a candidate whose Languages table lists Spanish (Native) and English (B1/B2). A posting requiring "fluent Russian" → **FAIL**, Russian isn't declared at all. A posting requiring "fluent English" → **FLAG**, English is declared but "fluent" plausibly exceeds B1/B2 — score and draft the application, but tell the candidate this posting's bar may be a stretch and let them decide. A posting requiring "conversational English" or unspecified English → **PASS**, B1/B2 clears a "conversational" bar cleanly.
+1. **Urdu.** It is a declared native language, so a posting requiring Urdu is not a genuine barrier. The English-only rule would nominally FAIL it. Treat this as a **FLAG, not a FAIL** — surface it to Abdul with the requirement quoted and let him decide, rather than silently discarding a role he is fully qualified to hold.
+2. **"Local language required for the visa/permit," not for the work.** Some countries attach a language condition to the residence permit rather than the job. Report it as a **FAIL** with the source quoted, since the practical effect is the same, but say which of the two it is — the distinction matters if he later reconsiders a specific country.
+
+Downstream wiring is unchanged: `/rank` records the result as `language_gate` (PASS/FAIL/FLAG) with a supporting `language_note`, persists both into `seen_jobs.json`, and treats a FAIL as a shortlist veto; `/scrape` surfaces the flag in its results table. `/apply`'s Step 1 language detection feeds this same check.
 
 ## Scoring Dimensions
 
@@ -60,8 +82,11 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** C++ (expert, 8+ years), Embedded Linux, Yocto/BitBake, CI/CD (GitLab, Jenkins, Zuul), Docker, cross-compilation, payment systems (ISO 8583, ISO 20022, EMV, SWIFT, PCI DSS), SIP/RTP telephony, GTest/GMock, SonarQube
-**Moderate match areas:** Python, Bash, ROS, microservices architecture, AWS, TDD/EDD, design patterns, PlantUML
+**Strong match areas:** Yocto Project / BitBake / OpenEmbedded, BSP and meta-layer architecture, embedded Linux, C++ (incl. modern idioms, STL, multithreading), CI/CD pipeline engineering (GitLab CI, Jenkins, Zuul), build system optimisation, cross-compilation, ISO 8583 / ISO 20022 payment messaging, EMV and switch certification, SIP/RTP real-time telephony, GTest/GMock unit testing
+
+**Moderate match areas:** Python, Bash, Docker, ROS2, Colcon, CMake, TCP/IP, IPC, SQL, PlantUML, TDD/EDD, microservices architecture, high-availability system design, SOAP/REST integration, AWS, SonarQube, Agile/Scrum facilitation and JIRA workflow design, technical mentoring
+
+**Currently building (learning phase — claim as in-progress, never as held):** AWS Certified Solutions Architect – Associate; NVIDIA AI Infrastructure. Cloud architecture and AI/GPU infrastructure are the declared growth direction, not yet backed by production experience. Score postings that *require* these as gaps; score postings that list them as nice-to-have as partial credit with the study effort mentioned honestly.
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for? Match on the function and nature of the work performed, not the literal job title - a "Data Consultant" and a "Data Scientist" role can be functionally identical.
@@ -73,9 +98,11 @@ Does work history align with what they're looking for? Match on the function and
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** Embedded DevOps, Yocto BSP architecture, C++ systems engineering, payment/fintech backend, telecom (SIP/RTP) real-time services
-**Moderate:** Automotive infotainment (BMW), autonomous driving platform build infrastructure, ATM/POS integration
-**Entry-level:** People management beyond one direct report, ML/AI modeling, front-end/UI work
+**Strong:** Embedded build infrastructure and BSP ownership (automotive / autonomous driving); embedded DevOps and CI/CD platform engineering; C++ systems engineering in safety- and compliance-sensitive domains; banking, payments and transaction switching; telecom contact-centre and real-time VoIP platforms
+
+**Moderate:** Platform / infrastructure engineering roles outside embedded; SRE and release engineering; robotics software (ROS exposure via the autonomous stack, not as a primary discipline); solutions or field engineering in embedded and payments; technical team lead roles (one direct report, plus cross-functional process work)
+
+**Entry-level / stretch:** AI infrastructure and cloud solutions architect roles (the NVIDIA-style direction) — strong adjacent systems and build-infrastructure foundations, but no production cloud-architecture track record yet. Treat as a genuine stretch tier, worth applying to selectively rather than as the primary search.
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -89,11 +116,36 @@ Does the role and company culture match the behavioral profile?
 
 **Red flags to research:** Department disorganization, work dominated by maintenance over development, poor chemistry with leadership, culture mismatches. Check reviews, media coverage, LinkedIn connections, and network contacts for insider perspective.
 
+**Non-blocking rule (set 2026-08-29):** behavioural fit is a **soft signal only**. It is never a
+FAIL, never a shortlist veto, and never a reason to stall or abort a `/scrape` or `/rank` run.
+The only hard gates are the Eligibility Gate, the Language Gate, and Location. When behavioural
+evidence is thin, absent, or falls in `02-behavioral-profile.md`'s "genuinely unknown" band
+(anything resting on stress reactivity or pressure tolerance), **score 70 (neutral), note it in
+one line, and continue.** A missing or unreadable behavioural profile is not an error.
+
 ### 4. Location & Logistics (Pass/Fail + Notes)
-- Within commute range: PASS
-- Remote with occasional office: PASS
-- Requires relocation: FAIL (deal-breaker)
-- Frequent international travel: FLAG (discuss with user)
+
+**Abdul's rule (set 2026-08-29): anywhere in the world except Pakistan.** He is actively seeking
+to leave the Pakistani market. Remote and relocation are equally acceptable, and **he is willing
+to fund and arrange relocation himself** — employer-provided relocation support is a nice-to-have,
+never a requirement, and its absence must not downgrade a role.
+
+| Situation | Verdict |
+|---|---|
+| Fully remote, hiring worldwide or in a region that includes his time zone | **PASS (ideal)** |
+| On-site or hybrid **outside Pakistan**, with stated visa sponsorship / relocation support | **PASS (ideal)** |
+| On-site or hybrid **outside Pakistan**, relocation support not mentioned | **PASS.** Do not downgrade — he will self-relocate, and silence on sponsorship is a PASS at the Eligibility Gate. |
+| Remote but region-locked to a region that excludes him ("remote — US only", "remote — EU only") | **FLAG**, do not auto-drop — some employers flex for contractors |
+| **Based in Pakistan, or Pakistan-remote** | **FAIL.** This is the one geography he is filtering out. |
+| Requires citizenship, permanent residency, or a security clearance in the hiring country | **FAIL** at the Eligibility Gate above, before scoring |
+| Frequent international travel | **PASS** — no constraint recorded |
+
+**Two separate questions, both already answered above.** Relocation *cost and logistics* — he
+covers those himself, so no relocation package is never a downgrade. Work *authorisation* — the
+Eligibility Gate now fails a posting only when it **explicitly** demands existing work rights or
+local residence; silence passes and is drafted without a careers-page check. Never write "he
+will relocate himself" as though it answered the visa question, and never assert authorisation
+he does not have — but do not raise the question unprompted either.
 
 ### 5. Career Alignment & Motivation (0-100)
 Does this role advance career goals and contain tasks that energize?
@@ -106,19 +158,29 @@ Does this role advance career goals and contain tasks that energize?
 | 0-39 | Dead end or backwards step |
 
 **Career goals:**
-- Grow into senior/staff-level embedded systems or DevOps engineering roles at scale
-- Deepen ownership of production embedded Linux platforms (autonomous driving, robotics, industrial)
-- Build reputation in Yocto BSP architecture and CI/CD optimization
+- Continue deepening embedded DevOps and Yocto/BSP architecture ownership — the strongest and most desired direction
+- Move into AI infrastructure and cloud architecture, with NVIDIA-style GPU/AI-infrastructure roles as the aspirational target
+- Relocate abroad or secure fully remote international work
 
 **Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: greenfield architecture, performance/build-time optimization, cross-team enablement, complex embedded Linux problems, distributed system design
-- Tasks that drain: maintenance-only mandates with no design surface, heavy people-management overhead, disorganized process without ownership authority
+- Tasks that energize: deep technical ownership; greenfield architecture; dismantling systemic friction (build times, redundant work); writing design documentation and trade-off analysis; mentoring individuals
+- Tasks that drain: **not established.** Per the operative run-2 reading in
+  `02-behavioral-profile.md`, structured process and ceremony are a *fit* rather than a friction,
+  and balanced Extraversion removes presenting and stakeholder work from this list. What remains
+  (high-interrupt environments, heavy on-call, manufactured urgency) rests on Emotional
+  Stability, which has **no reading**. Do not score against a drain list — ask Abdul about the
+  specific posting.
+
+<!-- The energize list is well supported: convergent industriousness and Openness findings plus
+the CV record. The drain list has been withdrawn - see 02-behavioral-profile.md, where run 2 is
+now the operative reading. Never down-score a posting for "fast-paced", on-call, or
+structured-process language; behavioural fit is non-blocking and defaults to neutral (70). -->
 - Non-task factors: leadership style, department culture, company values, degree of autonomy
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: currently employed, evaluating strategic moves rather than urgent switches
-- **Flexibility**: based in Karachi; open to remote work with international teams (US/EU/ME time zones already worked)
-- **Professional development**: prioritize roles that expand systems ownership and technical depth
+- **Security**: [not recorded — currently employed at Covolv.ai, so searching from a position of stability rather than urgency]
+- **Flexibility**: No commute or schedule constraints recorded
+- **Professional development**: Actively studying AWS Solutions Architect – Associate and NVIDIA AI Infrastructure; roles offering cloud/AI-infrastructure exposure or certification support score higher
 
 ### 6. Salary Benchmark (Optional)
 
