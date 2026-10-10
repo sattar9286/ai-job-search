@@ -4,6 +4,8 @@ framework_version: 1.0.0
 
 # Interview Preparation Guide
 
+<!-- SETUP: STAR examples are personalized by running /setup based on your actual experience -->
+
 ## STAR Format
 
 Structure answers as: **Situation** (context), **Task** (your responsibility), **Action** (what you did), **Result** (outcome).
@@ -76,10 +78,10 @@ Stubs generated from CV bullets. Flesh out Situation / Task / Action / Result de
 > Growing into senior/staff-level embedded systems or DevOps roles, deepening ownership of production embedded Linux platforms.
 
 ### "What's your biggest weakness?"
-> (Prepare an honest one with a concrete mitigation strategy.)
+> [PREPARE YOUR ANSWER - genuine weakness with concrete mitigation strategy]
 
 ### "Why this company specifically?"
-> Customize per company. Never generic. Reference specific projects, values, market position, or team structure.
+> Customize per company. Must reference: specific projects, company values, market position, or team structure. Never give a generic answer.
 
 ## Questions You Should Ask Interviewers
 
@@ -98,7 +100,7 @@ Stubs generated from CV bullets. Flesh out Situation / Task / Action / Result de
 - "Is there room to grow into more architectural or strategic decisions?"
 - "How does the team stay current with new tools and methods?"
 
-### About Culture
+### About Culture (use these to prevent disappointment)
 - "How would you describe the team culture?"
 - "What does professional development look like here?"
 - "Is there flexibility for remote/hybrid work?"
@@ -107,24 +109,25 @@ Stubs generated from CV bullets. Flesh out Situation / Task / Action / Result de
 - "What do people who thrive here have in common?"
 
 ## Phone/Video Interview Tips
-- Have STAR examples written out
+- Have STAR examples written out (use this file)
 - Keep a glass of water nearby
 - Smile when speaking (it changes your tone)
 - Ask for clarification if a question is vague
 - It's OK to take 5 seconds to think before answering
 - End with: "Is there anything else you'd like to know about my background?"
 
-## After the Application
+## After the Application (Best Practice)
 
 ### Follow-Up Etiquette
-- Don't call to "stand out"
-- Respect the employer's stated timeline
-- If no timeline was given and 2+ weeks have passed, a brief status call is acceptable
-- If you have new, relevant information, a short follow-up is fine
+- **Don't call to "stand out"** or to learn more about the role post-submission - this risks a negative impression
+- If the employer specified a timeline, respect it and wait
+- If no timeline was given and significant time has passed (2+ weeks), a brief call to ask about status is acceptable
+- If you have genuinely new, relevant information to share, a short follow-up is fine
 
 ### Thank-You Notes
-- Send a brief thank-you after any update (interview invitation, rejection, or status update)
-- 2-3 sentences
+- When you receive any update (interview invitation, rejection, or status update), send a brief thank-you message
+- Express appreciation for their time and the process
+- Keep it short (2-3 sentences)
 
 ## Roleplay Guidelines
 When the user asks for interview practice:

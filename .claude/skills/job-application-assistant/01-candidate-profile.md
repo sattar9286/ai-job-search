@@ -4,6 +4,9 @@ framework_version: 1.1.1
 
 # Candidate Profile
 
+<!-- SETUP: This file is populated by running /setup -->
+<!-- After running /setup, all sections will be filled with your actual information -->
+
 ## Identity
 - **Name:** Abdul Sattar
 - **Location:** Karachi, Pakistan
@@ -15,6 +18,10 @@ framework_version: 1.1.1
 - **Constraints:** Based in Karachi; open to remote work with international teams (Europe, Middle East, Asia experience)
 
 ### Languages
+<!-- Every language you can work in professionally, with your honest level. Used by the
+Language Gate in 04-job-evaluation.md and by job-scraper/search-queries.md's query-language
+generation. Omit any language you don't actually work in - an undeclared language is treated as
+a hard no, not a gap to smooth over. -->
 
 | Language | Level | Notes |
 |----------|-------|-------|
@@ -78,7 +85,8 @@ Pakistan
 **Technologies:** C++, SOAP, REST, ISO 8583, NDC Protocol, EMV, PCI DSS
 
 ## Independent Projects
-- (None listed)
+<!-- Projects outside of employment: freelance, open source, personal -->
+- **[PROJECT_NAME]**: [DESCRIPTION]
 
 ## Technical Skills
 

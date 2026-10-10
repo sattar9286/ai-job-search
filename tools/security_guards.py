@@ -57,6 +57,8 @@ ALLOWED_PERMISSIONS = {
     "Bash(python3 tools/job_key.py:*)",
     "Bash(python tools/verify_pdf.py:*)",
     "Bash(python3 tools/verify_pdf.py:*)",
+    "Bash(python tools/verify_layout.py:*)",
+    "Bash(python3 tools/verify_layout.py:*)",
     "Bash(pdftotext:*)",
 }
 
@@ -82,6 +84,7 @@ REQUIRED_IGNORE_RULES = [
     "documents/linkedin/**",
     "documents/diplomas/**",
     "documents/references/**",
+    "documents/projects/**",
     "documents/applications/**",
     "documents/postings/**",
     # Belt-and-braces, not the primary guard: nothing writes here.
