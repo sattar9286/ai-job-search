@@ -4,12 +4,17 @@
 
 `/scrape` discovers every portal skill under `.agents/skills/*/SKILL.md` and runs its CLI first. Shipped country-agnostic CLIs include `linkedin-search`, `freehire-search`, and `remote-boards-search`; Danish demos and any skill you add with `/add-portal` are included the same way. You do **not** need a matching `site:` line below for those CLIs to run.
 
-**Currently enabled:** `linkedin-search`, `freehire-search`, `remote-boards-search` (Remote OK, Remotive, and We Work Remotely), `stepstone-search` (StepStone Austria and Belgium; Belgium also lists Luxembourg roles. Use `-m be` for Belgium, and broad terms like `embedded linux`, `devops`, `c++`, because these markets are small), `wellfound-search` (startup jobs. Use role pages `devops-engineer`, `embedded-software-engineer`, `site-reliability-engineer` with `--remote` or `-l <location>`, and always pass `-q` keywords, because role pages mix in unrelated jobs. Check `remoteLocations` for US-only region locks).
+**Currently enabled:** `linkedin-search`, `freehire-search`, `remote-boards-search` (Remote OK, Remotive, and We Work Remotely), `stepstone-search` (StepStone Austria and Belgium; Belgium also lists Luxembourg roles. Use `-m be` for Belgium, and broad terms like `embedded linux`, `devops`, `c++`, because these markets are small), `wellfound-search` (startup jobs. Use role pages `devops-engineer`, `embedded-software-engineer`, `site-reliability-engineer` with `--remote` or `-l <location>`, and always pass `-q` keywords, because role pages mix in unrelated jobs. Check `remoteLocations` for US-only region locks), `reed-search` (UK. Supports `--jobage` and paging; agency-heavy, and many UK defence roles require British nationality or clearance in the ad text, so read descriptions for the Eligibility Gate).
 **Currently disabled:** the four Danish demo portals (`jobindex`, `jobbank`, `jobdanmark`, `jobnet`) — not relevant to this search.
 **Covered only by the `site:` fallback below:**
 - **StepStone Germany:** stepstone.de's CDN refuses every request, including `robots.txt` (re-checked 2026-10-14).
 - **StepStone Netherlands:** stepstone.nl requests time out with no response (2026-10-14).
-- **Indeed:** every search page returns a "Security Check" wall (HTTP 403) on www, de, uk and pk domains, even to a browser user agent, and `robots.txt` disallows `/viewjob`. A dedicated CLI would need a paid unblocking service and still could not fetch job details within the rules.
+- **Blocked on 2026-10-14:**
+  - HTTP 403 bot walls on robots.txt and/or search: totaljobs, CV-Library, Monster (.com and .de), meinestadt.de, apec.fr, nationalevacaturebank.nl.
+  - InfoJobs returns 405 to non-browser clients; its official API needs a key.
+  - werkenbij.nl did not resolve.
+  - Jobrapido serves search pages, but robots.txt disallows `?q=` and every `/job/*` detail link. It is also an aggregator of other boards.
+- **Indeed:** every search page returns a "Security Check" wall (HTTP 403) on www, de, nl, uk and pk domains, even to a browser user agent, and `robots.txt` disallows `/viewjob`. A dedicated CLI would need a paid unblocking service and still could not fetch job details within the rules.
 
 The `site:` query templates in this file are the **WebSearch fallback** — for portals without a CLI, company career pages, or when a CLI fails.
 
