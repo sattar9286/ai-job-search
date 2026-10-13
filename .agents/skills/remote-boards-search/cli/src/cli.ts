@@ -94,7 +94,7 @@ async function main(): Promise<number> {
       const html = await getText(url)
       const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)
       const descriptionMatch = html.match(/<meta[^>]+(?:name|property)=["'](?:description|og:description)["'][^>]+content=["']([^"']*)["'][^>]*>/i)
-      const result = { url, title: cleanText(titleMatch?.[1]), description: cleanText(descriptionMatch?.[1]) ?? cleanText(html).slice(0, 12000), fetched: true }
+      const result = { url, title: cleanText(titleMatch?.[1]), description: cleanText(descriptionMatch?.[1]) ?? (cleanText(html) ?? "").slice(0, 12000), fetched: true }
       process.stdout.write(JSON.stringify(result, null, 2) + "\n")
       return 0
     } catch (e) { outputError("detail", e); return 1 }
