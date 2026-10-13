@@ -85,17 +85,17 @@ site:stepstone.com "C++ Software Engineer" automotive
 
 ## Location Filter
 
-**Anywhere in the world except Pakistan** (rule set 2026-08-29). Remote and relocation are
+**Anywhere in the world except India and Israel** (rule updated 2026-10-13). Pakistan-remote is acceptable. Remote and relocation are
 equally welcome, and Abdul will **fund and arrange relocation himself** if needed, so the absence
 of employer relocation support is not a downgrade.
 
 - **Ideal:** fully remote, hiring worldwide or in a region that includes his time zone
-- **Ideal:** on-site or hybrid outside Pakistan with visa sponsorship / relocation support stated
-- **Ideal:** on-site or hybrid outside Pakistan with **no** relocation support mentioned — rank
+- **Ideal:** on-site or hybrid outside India/Israel with visa sponsorship / relocation support stated
+- **Ideal:** on-site or hybrid outside India/Israel with **no** relocation support mentioned — rank
   these level with the above, not below. Self-funded relocation is fine.
 - **Borderline:** remote roles region-locked in a way that excludes him ("remote — US only",
   "remote — EU only") — flag rather than drop; some employers flex for contractors
-- **Exclude:** India, Israel. This is the one geography being
+- **Exclude:** roles based in India or Israel. These are the only geographies being
   filtered out.
 - **Exclude:** roles whose ad **explicitly** requires existing work authorisation ("must have
   the right to work in X"), explicitly requires being local ("must be

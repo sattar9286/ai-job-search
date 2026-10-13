@@ -125,18 +125,19 @@ one line, and continue.** A missing or unreadable behavioural profile is not an 
 
 ### 4. Location & Logistics (Pass/Fail + Notes)
 
-**Abdul's rule (set 2026-08-29): anywhere in the world except Pakistan.** He is actively seeking
-to leave the Pakistani market. Remote and relocation are equally acceptable, and **he is willing
+**Abdul's rule (updated 2026-10-13): anywhere in the world except India and Israel.** Pakistan-remote
+roles are acceptable. Remote and relocation are equally acceptable, and **he is willing
 to fund and arrange relocation himself** — employer-provided relocation support is a nice-to-have,
 never a requirement, and its absence must not downgrade a role.
 
 | Situation | Verdict |
 |---|---|
 | Fully remote, hiring worldwide or in a region that includes his time zone | **PASS (ideal)** |
-| On-site or hybrid **outside Pakistan**, with stated visa sponsorship / relocation support | **PASS (ideal)** |
-| On-site or hybrid **outside Pakistan**, relocation support not mentioned | **PASS.** Do not downgrade — he will self-relocate, and silence on sponsorship is a PASS at the Eligibility Gate. |
+| Pakistan-remote | **PASS** |
+| On-site or hybrid **outside India/Israel**, with stated visa sponsorship / relocation support | **PASS (ideal)** |
+| On-site or hybrid **outside India/Israel**, relocation support not mentioned | **PASS.** Do not downgrade — he will self-relocate, and silence on sponsorship is a PASS at the Eligibility Gate. |
 | Remote but region-locked to a region that excludes him ("remote — US only", "remote — EU only") | **FLAG**, do not auto-drop — some employers flex for contractors |
-| **Based in Pakistan, or Pakistan-remote** | **FAIL.** This is the one geography he is filtering out. |
+| **Based in India or Israel** (on-site, hybrid, or country-remote) | **FAIL.** These are the geographies he is filtering out. |
 | Requires citizenship, permanent residency, or a security clearance in the hiring country | **FAIL** at the Eligibility Gate above, before scoring |
 | Frequent international travel | **PASS** — no constraint recorded |
 

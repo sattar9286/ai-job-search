@@ -15,7 +15,7 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ### Identity
 - **Name:** Abdul Sattar
-- **Location:** Karachi, Pakistan. **Targeting anywhere in the world except Pakistan** - remote or on-site are equally acceptable, and he will fund and arrange relocation himself if needed, so employer relocation support is a nice-to-have and never a requirement. Roles based in Pakistan or Pakistan-remote are filtered out. On work authorisation, the Eligibility Gate is set to **explicit exclusions only**: a posting is skipped only if it explicitly requires existing work rights, local residence, citizenship, PR, or a clearance. Silence on sponsorship is a PASS - score it, draft it, apply, and do not raise the visa question unprompted.
+- **Location:** Karachi, Pakistan. **Targeting anywhere in the world except India and Israel** - remote or on-site are equally acceptable, and he will fund and arrange relocation himself if needed, so employer relocation support is a nice-to-have and never a requirement. Roles based in India or Israel are filtered out. Pakistan-remote roles are acceptable (rule updated 2026-10-13). On work authorisation, the Eligibility Gate is set to **explicit exclusions only**: a posting is skipped only if it explicitly requires existing work rights, local residence, citizenship, PR, or a clearance. Silence on sponsorship is a PASS - score it, draft it, apply, and do not raise the visa question unprompted.
 - **Phone:** +92 302 264 5125
 - **Email:** sattardariya@gmail.com
 - **LinkedIn:** https://linkedin.com/in/sattardariya
@@ -128,7 +128,7 @@ on-call language - ask Abdul about the specific role instead.
 <!-- Not yet recorded - ask before relying on this section. -->
 - Roles whose ad **explicitly** requires existing work authorisation ("no visa sponsorship", "must have the right to work in X"), explicitly requires being local ("must be based in X", "local candidates only"), or requires citizenship, permanent residency, or a security clearance (fails the Eligibility Gate). Postings **silent** on sponsorship are not deal-breakers - apply to those.
 - **Roles requiring any language other than English as a job condition** (fails the Language Gate). A non-English language listed as a *nice-to-have* is not a requirement and does not fail. Urdu is the one exception - it is a declared native language, so flag rather than fail and let Abdul decide.
-- Roles based in Pakistan, or Pakistan-remote (fails the Location gate)
+- Roles based in India or Israel (fails the Location gate). Pakistan-remote is fine.
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)
