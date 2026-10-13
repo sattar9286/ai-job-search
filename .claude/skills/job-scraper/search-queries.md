@@ -2,11 +2,11 @@
 
 ## Installed portal CLIs (primary for `/scrape`)
 
-`/scrape` discovers every portal skill under `.agents/skills/*/SKILL.md` and runs its CLI first. Shipped country-agnostic CLIs include `linkedin-search` and `freehire-search`; Danish demos and any skill you add with `/add-portal` are included the same way. You do **not** need a matching `site:` line below for those CLIs to run.
+`/scrape` discovers every portal skill under `.agents/skills/*/SKILL.md` and runs its CLI first. Shipped country-agnostic CLIs include `linkedin-search`, `freehire-search`, and `remote-boards-search`; Danish demos and any skill you add with `/add-portal` are included the same way. You do **not** need a matching `site:` line below for those CLIs to run.
 
-**Currently enabled:** `linkedin-search`, `freehire-search`.
+**Currently enabled:** `linkedin-search`, `freehire-search`, `remote-boards-search` (Remote OK, Remotive, and We Work Remotely).
 **Currently disabled:** the four Danish demo portals (`jobindex`, `jobbank`, `jobdanmark`, `jobnet`) — not relevant to this search.
-**Not yet installed:** StepStone and Indeed have no CLI skill. They are covered by the `site:` fallback queries below; scaffold real CLIs with `/add-portal` if the fallback proves too thin.
+**Not yet installed as dedicated CLIs:** StepStone, Indeed, and Wellfound. They are covered by the `site:` fallback queries below; scaffold dedicated CLIs with `/add-portal` if the fallback proves too thin.
 
 The `site:` query templates in this file are the **WebSearch fallback** — for portals without a CLI, company career pages, or when a CLI fails.
 
