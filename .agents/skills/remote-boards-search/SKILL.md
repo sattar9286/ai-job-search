@@ -24,8 +24,12 @@ discovered automatically alongside LinkedIn and freehire.
   requests low-volume and follow the site's current terms and access rules.
 - **Remotive:** public remote-jobs API. Its API documentation asks users to respect
   caching and rate limits; results can be delayed and are not a guarantee of an active vacancy.
-- **We Work Remotely:** public RSS feed for remote programming jobs. Coverage is
-  category-limited by the feed URL and may omit non-programming roles.
+- **We Work Remotely:** public RSS feeds for remote programming and DevOps/sysadmin
+  jobs. Coverage is category-limited by the feed URLs and may omit other roles.
+- **Relevance filter:** search terms must appear in the job title (whole-term match),
+  and the title must name an engineering domain (embedded, Yocto, kernel, DevOps,
+  build/release, infrastructure, GPU, ...). Web, front-end, full-stack and
+  non-engineering titles are dropped even when their descriptions list matching skills.
 - All sources are best-effort and can change their response formats. The CLI reports
   per-source failures on stderr and continues with other sources.
 

@@ -63,9 +63,15 @@ async function remotive(query: string): Promise<JobResult[]> {
     return [{ id: String(r.id ?? url), title, company: cleanText(r.company_name), location: cleanText(r.candidate_required_location) ?? "Remote", date: normalizeDate(r.publication_date), url, description: cleanText(r.description), source: "remotive" }]
   })
 }
+const WWR_FEEDS = [
+  "https://weworkremotely.com/categories/remote-programming-jobs.rss",
+  "https://weworkremotely.com/categories/remote-devops-sysadmin-jobs.rss",
+]
 async function weWorkRemotely(): Promise<JobResult[]> {
-  const xml = await getText("https://weworkremotely.com/categories/remote-programming-jobs.rss")
-  const rows = parseRss(xml)
+  const settled = await Promise.allSettled(WWR_FEEDS.map(getText))
+  const xmls = settled.flatMap((r) => r.status === "fulfilled" ? [r.value] : [])
+  if (!xmls.length) throw (settled[0] as PromiseRejectedResult).reason
+  const rows = xmls.flatMap((xml) => parseRss(xml))
   return rows.map((job) => {
     const match = job.title.match(/^(.+?)\s*:\s*(.+)$/)
     return match ? { ...job, company: match[1].trim(), title: match[2].trim() } : job

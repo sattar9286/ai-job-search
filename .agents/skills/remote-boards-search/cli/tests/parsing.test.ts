@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test"
-import { cleanText, filterJobs, normalizeDate, parseRss, type JobResult } from "../src/helpers.js"
+import { cleanText, filterJobs, hasTerm, normalizeDate, parseRss, type JobResult } from "../src/helpers.js"
 
 describe("remote board normalization", () => {
   test("cleans HTML and common entities", () => {
@@ -35,5 +35,30 @@ describe("remote board normalization", () => {
       base("Embedded Linux Engineer", "embedded"),
       { ...base("Build Engineer", "build"), description: "Yocto, BitBake, CMake and GitLab CI" },
     ], "", 0).map((job) => job.id)).toEqual(["embedded", "build"])
+  })
+
+  test("query terms must match the title, not a long aggregator description", () => {
+    const stuffed = "React, Node, Python, Docker, Linux, C++, DevOps, embedded systems, Bash"
+    const jobs: JobResult[] = [
+      { id: "web", title: "Senior React Full-stack Developer", company: "Agency", location: "Remote", date: null, url: "https://example.com/web", description: stuffed, source: "remotive" },
+      { id: "backend", title: "Senior back-end Engineer", company: "Agency", location: "Remote", date: null, url: "https://example.com/backend", description: stuffed, source: "remotive" },
+      { id: "devops", title: "Embedded DevOps Engineer", company: "Acme", location: "Remote", date: null, url: "https://example.com/devops", description: "GitLab CI", source: "remoteok" },
+    ]
+    expect(filterJobs(jobs, "embedded", 0).map((j) => j.id)).toEqual(["devops"])
+    expect(filterJobs(jobs, "c++", 0).map((j) => j.id)).toEqual([])
+    expect(filterJobs(jobs, "", 0).map((j) => j.id)).toEqual(["devops"])
+  })
+
+  test("matches whole terms only and handles c++", () => {
+    expect(hasTerm("work across teams", "ros")).toBe(false)
+    expect(hasTerm("ros 2 navigation", "ros")).toBe(true)
+    expect(hasTerm("senior c++ engineer", "c++")).toBe(true)
+    expect(hasTerm("senior c engineer", "c++")).toBe(false)
+  })
+
+  test("does not treat 'build' as a verb in titles", () => {
+    const job: JobResult = { id: "agents", title: "Senior Backend Engineer Build AI Agents", company: "X", location: "Remote", date: null, url: "https://example.com/a", description: "Python and Docker", source: "remoteok" }
+    expect(filterJobs([job], "", 0)).toEqual([])
+    expect(filterJobs([{ ...job, title: "Build and Release Engineer" }], "", 0)).toHaveLength(1)
   })
 })
