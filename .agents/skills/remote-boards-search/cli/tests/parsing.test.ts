@@ -22,4 +22,18 @@ describe("remote board normalization", () => {
   test("returns null for unknown dates", () => {
     expect(normalizeDate("not-a-date")).toBeNull()
   })
+
+  test("excludes unrelated job titles and keeps embedded engineering roles", () => {
+    const base = (title: string, id: string): JobResult => ({
+      id, title, company: "Example", location: "Remote", date: null,
+      url: "https://example.com/" + id, description: "General responsibilities and teamwork",
+      source: "remoteok",
+    })
+    expect(filterJobs([
+      base("Marketing and Sales Administrator", "marketing"),
+      base("Technical Account Manager", "tam"),
+      base("Embedded Linux Engineer", "embedded"),
+      { ...base("Build Engineer", "build"), description: "Yocto, BitBake, CMake and GitLab CI" },
+    ], "", 0).map((job) => job.id)).toEqual(["embedded", "build"])
+  })
 })
