@@ -78,9 +78,12 @@ Sole embedded engineer and Yocto BSP architect for an autonomous driving platfor
 - Automated dynamic compilation flag injection at build time by engineering a configuration resolver that interrogates the target hardware profile and environment state at each compile stage, supplying the correct compiler and linker flags on-the-fly — eliminating brittle hardcoded flag management across board targets.
 - Supervised and technically mentored one junior pipeline engineer on GitLab CI YAML authoring, pipeline stage design, and Docker layer caching strategies.
 - Contributed to the XOPS team as a process improvement engineer — grooming cross-functional teams on Scrum adoption and sprint ceremony practices while redesigning and validating JIRA project workflows and issue validation rules, improving sprint visibility, traceability, and reporting accuracy.
-- Owned the complete hardware bring-up and validation loop — building Yocto images end-to-end, flashing target embedded boards, and running integration tests to verify pipeline-produced images boot correctly and the autonomous driving stack initialises as expected on physical hardware.
+- Owned the complete hardware bring-up and validation loop — building Yocto images end-to-end, flashing target embedded boards (ARM Cortex-A, confirmed by Abdul 2026-10-14), and running integration tests to verify pipeline-produced images boot correctly and the autonomous driving stack initialises as expected on physical hardware.
 
-**Technologies:** GitLab CI/CD, Docker, Yocto, BitBake, Poky, OpenEmbedded, CMake, Colcon, ROS, Python, Bash, C++, Jira, Confluence
+**Technologies:** GitLab CI/CD, Docker, Yocto, BitBake, Poky, OpenEmbedded, CMake, Colcon, ROS, Python, Bash, C++, Jira, Confluence, ARM Cortex-A target boards
+
+<!-- Confirmed 2026-10-14: does NOT use Yocto devtool day to day - do not claim devtool. -->
+
 
 ### Principal Software Engineer - C++ (Payments & Transactions) - Avanza Solutions (May 2024 - Sept 2024)
 Pakistan
