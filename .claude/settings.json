@@ -60,5 +60,19 @@
       "Bash(ncat:*)",
       "Bash(netcat:*)"
     ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/auto-commit.sh\"",
+            "timeout": 60,
+            "statusMessage": "Auto-saving work to git..."
+          }
+        ]
+      }
+    ]
   }
 }
